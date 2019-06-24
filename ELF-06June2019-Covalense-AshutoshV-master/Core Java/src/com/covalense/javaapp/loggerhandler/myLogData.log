@@ -1,0 +1,84 @@
+Jun 17, 2019 11:53:08 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:02:59 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:04:26 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:05:36 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:06:59 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:07:56 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:09:50 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:10:25 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:10:50 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:16:46 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:16:47 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:16:48 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:16:50 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:16:52 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:18:06 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:20:14 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:22:59 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:23:01 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:41:25 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:46:38 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:48:40 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 17, 2019 12:48:43 PM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:05:54 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:15:57 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:16:47 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:16:47 AM com.Loger.BuyProduct buy
+SEVERE: Hi its a SEVERE buy message
+Jun 18, 2019 10:17:33 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:17:33 AM com.Loger.BuyProduct buy
+SEVERE: Hi its a SEVERE buy message
+Jun 18, 2019 10:17:52 AM com.Loger.TestB main
+SEVERE: Hi its a SEVERE message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+WARNING: Hi its a WARNING message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+INFO: Hi its a INFO message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+CONFIG: Hi its a CONFIG message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+FINE: Hi its a FINE message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+FINER: Hi its a FINER message
+Jun 18, 2019 10:17:53 AM com.Loger.TestB main
+FINEST: Hi its a FINEST message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+SEVERE: Hi its a SEVERE buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+WARNING: Hi its a WARNING buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+INFO: Hi its a INFO buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+CONFIG: Hi its a CONFIG buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+FINE: Hi its a FINE buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+FINER: Hi its a FINER buy message
+Jun 18, 2019 10:17:53 AM com.Loger.BuyProduct buy
+FINEST: Hi its a FINEST buy message
