@@ -1,10 +1,12 @@
 package com.covalense.javapp.collectionframework;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestLinkedList {
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
@@ -14,30 +16,30 @@ public class TestLinkedList {
 		ll.add('A');
 		ll.add(null);
 		for (int i = 0; i < ll.size(); i++) {
-			System.out.println(ll.get(i));
+			log.info("" + ll.get(i));
 		}
-		System.out.println("---------------");
+		log.info("------------------------");
 		for (Object o : ll) {
-			System.out.println(o);
+			log.info("" + o);
 
 		}
-		System.out.println("---------------");
+		log.info("------------------------");
 		Iterator it = ll.iterator();
 		while (it.hasNext()) {
 			Object r = it.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
-		
-		System.out.println("---------------");
-		ListIterator lit =  ll.listIterator();
+
+		log.info("------------------------");
+		ListIterator lit = ll.listIterator();
 		while (lit.hasNext()) {
 			Object r = lit.next();
-			System.out.println(r);
-		}	
-		System.out.println("---------------");
+			log.info("" + r);
+		}
+		log.info("------------------------");
 		while (lit.hasPrevious()) {
 			Object r = lit.previous();
-			System.out.println(r);
+			log.info("" + r);
 		}
 	}
 

@@ -5,6 +5,9 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Vector;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestGenericVector {
 	public static void main(String[] args) {
 		Vector<Double> v = new Vector<Double>();
@@ -13,36 +16,36 @@ public class TestGenericVector {
 		v.add(6.9);
 		v.add(5.2);
 		for (int i = 0; i < v.size(); i++) {
-			System.out.println(v.get(i));
+			log.info("" + v.get(i));
 		}
-		System.out.println("---------------");
+		log.info("-------------------");
 		for (Double d : v) {
-			System.out.println(d);
+			log.info("" + d);
 
 		}
-		System.out.println("---------------");
+		log.info("-------------------");
 		Iterator<Double> it = v.iterator();
 		while (it.hasNext()) {
 			Double r = it.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
 
-		System.out.println("---------------");
+		log.info("-------------------");
 		ListIterator<Double> lit = v.listIterator();
 		while (lit.hasNext()) {
 			Double r = lit.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
-		System.out.println("---------------");
+		log.info("-------------------");
 		while (lit.hasPrevious()) {
 			Double r = lit.previous();
-			System.out.println(r);
+			log.info("" + r);
 		}
 		Enumeration<Double> e = v.elements();
-		System.out.println("---------------");
+		log.info("-------------------");
 		while (e.hasMoreElements()) {
 			Double r = e.nextElement();
-			System.out.println(r);
+			log.info("" + r);
 		}
 	}
 }

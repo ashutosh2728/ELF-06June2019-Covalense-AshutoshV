@@ -1,12 +1,14 @@
 package com.covalense.javapp.employeedata;
 
+import lombok.extern.java.Log;
+
+@Log
 public class EDB2 {
-	
-	void edb2(Employee e)
-	{
-		System.out.println("Name is "+e.getName());
-		System.out.println("Salary is "+e.getGender());
-		System.out.println("Gender is "+e.getSalary());
+
+	void edb2(Employee e) {
+		log.info("Name is " + e.getName());
+		log.info("Salary is " + e.getGender());
+		log.info("Gender is " + e.getSalary());
 	}
 
 }

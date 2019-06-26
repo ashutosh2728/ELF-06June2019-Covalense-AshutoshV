@@ -5,6 +5,9 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Vector;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestVector {
 
 	public static void main(String[] args) {
@@ -16,36 +19,36 @@ public class TestVector {
 		v.add('A');
 		v.add(null);
 		for (int i = 0; i < v.size(); i++) {
-			System.out.println(v.get(i));
+			log.info("" + v.get(i));
 		}
-		System.out.println("---------------");
+		log.info("------------------------");
 		for (Object o : v) {
-			System.out.println(o);
+			log.info("" + o);
 
 		}
-		System.out.println("---------------");
+		log.info("------------------------");
 		Iterator it = v.iterator();
 		while (it.hasNext()) {
 			Object r = it.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
 
-		System.out.println("---------------");
+		log.info("------------------------");
 		ListIterator lit = v.listIterator();
 		while (lit.hasNext()) {
 			Object r = lit.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
-		System.out.println("---------------");
+		log.info("------------------------");
 		while (lit.hasPrevious()) {
 			Object r = lit.previous();
-			System.out.println(r);
+			log.info("" + r);
 		}
 		Enumeration e = v.elements();
-		System.out.println("---------------");
+		log.info("------------------------");
 		while (e.hasMoreElements()) {
 			Object r = e.nextElement();
-			System.out.println(r);
+			log.info("" + r);
 		}
 	}
 

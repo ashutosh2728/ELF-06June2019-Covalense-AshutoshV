@@ -2,6 +2,9 @@ package com.covalense.javapp.collectionframework;
 
 import java.util.ArrayList;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestGenericArrayList {
 
 	public static void main(String[] args) {
@@ -13,11 +16,11 @@ public class TestGenericArrayList {
 
 		for (int i = 0; i < al.size(); i++) {
 			Double r = al.get(i);
-			System.out.println(r);
+			log.info("" + r);
 		}
 		System.out.println("--------------");
 		for (Double r : al) {
-			System.out.println();
+			log.info("" + r);
 		}
 	}
 

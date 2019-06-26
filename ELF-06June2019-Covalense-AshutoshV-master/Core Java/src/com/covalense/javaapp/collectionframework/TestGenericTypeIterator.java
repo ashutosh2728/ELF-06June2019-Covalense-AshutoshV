@@ -3,6 +3,9 @@ package com.covalense.javapp.collectionframework;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestGenericTypeIterator {
 
 	public static void main(String[] args) {
@@ -15,7 +18,7 @@ public class TestGenericTypeIterator {
 		Iterator<Double> it = al.iterator();
 		while (it.hasNext()) {
 			Double r = it.next();
-			System.out.println(r);
+			log.info("" + r);
 		}
 	}
 

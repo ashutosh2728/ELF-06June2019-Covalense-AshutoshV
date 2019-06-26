@@ -18,7 +18,7 @@ public class TestGenericHashset {
 		for (Integer r : hs) {
 			log.info("" + r);
 		}
-		System.out.println("---------------");
+		log.info("------------------");
 		Iterator<Integer> it = hs.iterator();
 		while (it.hasNext()) {
 			Integer r = it.next();
