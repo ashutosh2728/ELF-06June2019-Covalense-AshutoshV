@@ -1,4 +1,4 @@
-package com.covalense.javapp.collectionframework;
+package com.covalense.javaapp.collectionframework;
 
 import java.util.ArrayList;
 import java.util.ListIterator;

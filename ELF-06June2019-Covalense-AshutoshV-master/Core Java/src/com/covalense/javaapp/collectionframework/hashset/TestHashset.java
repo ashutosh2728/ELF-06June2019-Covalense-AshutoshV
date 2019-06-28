@@ -1,4 +1,4 @@
-package com.covalense.javapp.collectionframework.hashset;
+package com.covalense.javaapp.collectionframework.hashset;
 
 import java.util.HashSet;
 import java.util.Iterator;
