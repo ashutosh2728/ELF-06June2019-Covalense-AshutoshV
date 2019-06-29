@@ -44,10 +44,9 @@ public class StudentTest {
 		ts.add(s5);
 
 		for (Student s : ts) {
-			if(s.gender=="Male")
-				log.info("Male topper is " + ts.stream().max(c));
+			log.info("Male topper is " + ts.stream().max(c));
 			break;
-			
+		
 		}
 
 	}
