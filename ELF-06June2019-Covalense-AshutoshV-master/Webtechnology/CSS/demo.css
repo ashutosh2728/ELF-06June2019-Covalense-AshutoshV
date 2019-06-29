@@ -1,0 +1,50 @@
+body{
+    background-image: linear-gradient(to right ,pink ,white,red ,white );
+    margin: 0%;
+    padding: 0%;
+}
+
+image{
+    border: white;
+    border-radius: 99%;
+ width: 1000px;
+ height: 1000px;
+ margin: auto;
+ display: block;
+}
+nav{
+    width: 100%;
+    background: black;
+}
+
+li{
+    color: blueviolet;
+    display: inline;
+}
+ul li a{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    padding: 30px;
+    display: inline-block;
+}
+
+input{
+    width: 250px;
+    height: 40px;
+    border-radius: 15px;
+    margin: 40px;
+
+}
+input :focus{
+    width: 250px;
+    height: 40px;
+    border-radius: 15px;
+    margin: 40px;
+    background: paleturquoise;
+    border: green;
+    box-shadow: 0 0 10px 8px grey;
+}
+#login {
+
+}

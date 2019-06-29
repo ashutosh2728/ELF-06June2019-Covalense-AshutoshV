@@ -1,0 +1,61 @@
+.heading {
+    color: bisque;
+    background: red
+    display: inline;
+}
+#paragraph {
+    padding: 20px;
+    background: rebeccapurple;
+    display: inline;
+    letter-spacing: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body {
+    /*background-image: linear-gradient(to right ,red,yellow ,purple  black,white, greenyellow);*/
+
+}
+input[type="username"] {
+    height: 40;
+    width: 50;
+    font-size: 30px;
+    display: block;
+}
+input[type="password"] {
+    height: 40;
+    width: 50;
+    font-size: 30px;
+    display: block;
+}
+input[type="submit"] {
+    height: 40;
+    width: 50;
+  
+    font-size: 30px;
+}
+#box1{
+    background: greenyellow;
+    padding: 60px 98px;
+    border: 10px double coral;
+    width: 10%;
+    margin: 50px 40px 30px 10 px;
+    outline: 2px dashed ;
+    box-shadow: 5px 5px 5px 8px black;
+
+}
+#inner1 {
+    height: 500px;
+    float: left;
+    width: 50%;
+    background: red;
+}
+#inner2 {
+    height: 300px;
+    background: cyan;
+    flood-opacity: initial;
+    width: 100%;
+    margin-inline-start: auto;
+}
+image{
+    border: white;
+    border: 99%;
+}
