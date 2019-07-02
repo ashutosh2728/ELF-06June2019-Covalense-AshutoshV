@@ -1,14 +1,11 @@
 package com.covalense.javapp.passingobject;
 
-public class Pen
-{
-	void open()
-	{
+public class Pen {
+	void open() {
 		System.out.println("Open Pen");
 		
 	}
-	void write()
-	{
+	void write() {
 		System.out.println("Writing with Pen ");
 	}
 			

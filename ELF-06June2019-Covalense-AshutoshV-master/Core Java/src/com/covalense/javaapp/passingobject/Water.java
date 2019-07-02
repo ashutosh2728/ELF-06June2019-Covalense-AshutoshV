@@ -2,12 +2,10 @@ package com.covalense.javapp.passingobject;
 
 public class Water
 {
-	void open()
-	{
+	void open() {
 		System.out.println("Open the bottle");
 	}
-	void drink()
-	{
+	void drink() {
 		System.out.println("Drink Water");
 	}
 }

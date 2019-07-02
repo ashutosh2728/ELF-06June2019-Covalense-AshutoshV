@@ -2,11 +2,9 @@ package com.covalense.javapp.functions;
 
 public class LanguageTest {
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		int lang = 3;
-		switch(lang)
-		{
+		switch(lang) {
 		case 1 : System.out.println("Selected language is Kannada");
 		break;
 		case 2 : System.out.println("Selected language is English");

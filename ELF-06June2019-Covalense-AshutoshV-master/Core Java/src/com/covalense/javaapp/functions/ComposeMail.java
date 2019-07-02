@@ -2,8 +2,7 @@ package com.covalense.javapp.functions;
 
 public class ComposeMail {
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		Mail m = new Mail();
 		m.cc="Resume";
 		m.from="Ashutosh Verma";
@@ -15,18 +14,15 @@ public class ComposeMail {
 
 }
 	
-class Mail
-{
+class Mail {
 	String to;
 	String from;
 	String cc;
 	
-	void send()
-	{
+	void send() {
 		System.out.println("Mail send");
 	}
-	void attachment()
-	{
+	void attachment() {
 		System.out.println("File attached");
 	}
 	
