@@ -6,26 +6,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.jdbc.Driver;
-
 import lombok.extern.java.Log;
 
 @Log
-public class MyFirstJDBCProgram {
+public final class MyFirstJDBCProgram {
 	public static void main(String[] args) {
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
 			// 1. Load the Driver
-			Driver driver = new Driver();
-			DriverManager.deregisterDriver(driver);
+			/*
+			 * Driver driver = new Driver(); DriverManager.registerDriver(driver);
+			 */
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 			// 2. Get the DB Connection via Driver
-			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db?user=root&password=root";
-			con = DriverManager.getConnection(dbUrl);
-
+			// String dbUrl =
+			// "jdbc:mysql://localhost:3306/covalense_db?user=root&password=root";
+			// con = DriverManager.getConnection(dbUrl);
+			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
+			con = DriverManager.getConnection(dbUrl, "root", "root");
 			// 3. Issue "SQL Queries via Connection"
+
+			log.info("" + con.getClass());
 			String query = "select * from employee_info";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
@@ -47,14 +51,15 @@ public class MyFirstJDBCProgram {
 				log.info("MNGR_ID ===>" + rs.getInt("MNGR_ID"));
 			} // End of while
 
-		} catch (SQLException e) {
-			e.getMessage();
+		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			e.printStackTrace();
 		} finally {
 			// 5. Close All "JDBC Objects"
 			{
 				try {
 					if (con != null) {
 						con.close();
+
 					}
 					if (stmt != null) {
 						stmt.close();
@@ -63,7 +68,7 @@ public class MyFirstJDBCProgram {
 						rs.close();
 					}
 				} catch (SQLException e) {
-					e.getMessage();
+					e.printStackTrace();
 				}
 			}
 		}
