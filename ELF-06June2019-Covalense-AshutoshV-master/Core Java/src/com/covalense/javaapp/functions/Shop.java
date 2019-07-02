@@ -2,11 +2,9 @@ package com.covalense.javapp.functions;
 
 public class Shop {
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		int price=20;
-		switch(price)
-		{
+		switch(price) {
 		case 10 : System.out.println("You will get lays");
 		break;
 		case 20 : System.out.println("You will get Kurkure");

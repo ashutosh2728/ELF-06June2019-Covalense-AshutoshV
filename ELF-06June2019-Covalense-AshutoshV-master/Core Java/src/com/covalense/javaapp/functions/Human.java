@@ -1,13 +1,11 @@
 package com.covalense.javapp.functions;
 
-public class Human 
-{
+public class Human {
  String color;
  double height;
  double weight;
  
- void run()
- {
+ void run() {
 	 System.out.println("run");
  }
 }
