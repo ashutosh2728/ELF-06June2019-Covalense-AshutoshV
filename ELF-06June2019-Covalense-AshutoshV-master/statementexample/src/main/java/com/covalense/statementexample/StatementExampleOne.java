@@ -1,4 +1,4 @@
-package com.covalense.jdbcapp;
+package com.covalense.statementexample;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +9,10 @@ import java.sql.Statement;
 import lombok.extern.java.Log;
 
 @Log
-public final class MyFirstJDBCProgram {
+public final class StatementExampleOne {
 	public static void main(String[] args) {
 		Connection con = null;
-		Statement stmt = null;
+		Statement pstmt = null;
 		ResultSet rs = null;
 		try {
 			// 1. Load the Driver
@@ -29,19 +29,14 @@ public final class MyFirstJDBCProgram {
 			con = DriverManager.getConnection(dbUrl, "root", "root");
 			// 3. Issue "SQL Queries via Connection"
 
-			log.info("" + con.getClass());
-			String query = "select * from employee_info";
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			String query = "select * from employee_info " + "where id=101";
+			pstmt = con.prepareStatement(query);
+			rs = pstmt.executeQuery(query);
 
 			// 4. Process the results returned by Sql queries
-			while (rs.next()) {
-				/*
-				 * log.info("ID ===>" + rs.getInt("ID")); log.info("NAME ===>" +
-				 * rs.getString("NAME"));
-				 */
-				log.info("ID ===>" + rs.getInt(1));
-				log.info("NAME ===>" + rs.getString(2));
+			if (rs.next()) {
+				log.info("ID ===>" + rs.getInt("ID"));
+				log.info("NAME ===>" + rs.getString("NAME"));
 				log.info("AGE ===>" + rs.getInt("AGE"));
 				log.info("GENDER ===>" + rs.getString("GENDER"));
 				log.info("SALARY ===>" + rs.getDouble("SALARY"));
@@ -57,12 +52,24 @@ public final class MyFirstJDBCProgram {
 
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} /*
-			 * finally { // 5. Close All "JDBC Objects" { try { if (con != null) {
-			 * con.close();
-			 * 
-			 * } if (stmt != null) { stmt.close(); } if (rs != null) { rs.close(); } } catch
-			 * (SQLException e) { e.printStackTrace(); } } }
-			 */
+		} finally {
+			// 5. Close All "JDBC Objects"
+			{
+				try {
+					if (con != null) {
+						con.close();
+
+					}
+					if (pstmt != null) {
+						pstmt.close();
+					}
+					if (rs != null) {
+						rs.close();
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }
