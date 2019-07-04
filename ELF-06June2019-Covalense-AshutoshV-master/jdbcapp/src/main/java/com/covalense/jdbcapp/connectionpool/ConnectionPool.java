@@ -6,7 +6,6 @@ import java.util.Vector;
 
 public class ConnectionPool {
 	private Vector<Connection> pool;
-
 	private String driverClassNM = null;
 	private String dbUrl = null;
 	private String userM = null;
