@@ -3,7 +3,6 @@ package com.covalense.jdbcapp;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import lombok.extern.java.Log;
@@ -55,7 +54,7 @@ public final class MyFirstJDBCProgram {
 				log.info("MNGR_ID ===>" + rs.getInt("MNGR_ID"));
 			} // End of while
 
-		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} /*
 			 * finally { // 5. Close All "JDBC Objects" { try { if (con != null) {
