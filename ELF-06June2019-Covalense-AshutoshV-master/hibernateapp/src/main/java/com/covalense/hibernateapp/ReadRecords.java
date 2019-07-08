@@ -19,7 +19,7 @@ public class ReadRecords {
 		EmployeeInfoBean empthe = session.get(EmployeeInfoBean.class, 101);
 		log.info("" + empthe.getId());
 		log.info("" + empthe.getAccountNumber());
-		log.info("" + empthe.getDeptId());
+		log.info("" + empthe.getDepartmentId());
 		log.info("" + empthe.getGender());
 
 		session.close();

@@ -1,9 +1,11 @@
 package com.covalense.designpattern.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.covalense.designpattern.beans.EmployeeInfoBean;
 import com.covalense.designpattern.util.HibernateUtil;
@@ -46,9 +48,14 @@ public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 	}
 
 	@Override
-	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo() {
-		// to do
-		return null;
+	public List<EmployeeInfoBean> getAllEmployeeInfo() {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.openSession();
+		String hql = "from EmployeeInfoBean";
+		Query query = session.createQuery(hql);
+		List<EmployeeInfoBean> employeeInfoBeans = query.list();
+
+		return employeeInfoBeans;
 	}
 
 	@Override

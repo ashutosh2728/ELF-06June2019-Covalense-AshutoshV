@@ -14,7 +14,7 @@ public class UpdateEmployeeOtherInfoBean {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 
-		EmployeeOtherInfoBean empthe = session.get(EmployeeOtherInfoBean.class, 153);
+		EmployeeOtherInfoBean empthe = session.get(EmployeeOtherInfoBean.class, 102);
 		empthe.setBloodGrp("B+");
 		session.update(empthe);
 		Transaction transaction = session.beginTransaction();

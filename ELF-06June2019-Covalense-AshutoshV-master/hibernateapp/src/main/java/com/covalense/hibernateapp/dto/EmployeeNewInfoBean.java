@@ -1,6 +1,5 @@
 package com.covalense.hibernateapp.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,10 +9,10 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Table(name = "employee_info")
+@Table(name = "newempinfo")
 @Entity
 @Data
-public class EmployeeInfoBean implements Serializable {
+public class EmployeeNewInfoBean {
 	@Id
 	@Column(name = "ID")
 	private int id;
@@ -41,5 +40,4 @@ public class EmployeeInfoBean implements Serializable {
 	private int departmentId;
 	@Column(name = "mngr_Id")
 	private int managerId;
-
 }

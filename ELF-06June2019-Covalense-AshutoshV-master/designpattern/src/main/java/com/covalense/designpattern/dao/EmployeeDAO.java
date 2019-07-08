@@ -1,6 +1,6 @@
 package com.covalense.designpattern.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.covalense.designpattern.beans.EmployeeInfoBean;
 
@@ -9,7 +9,7 @@ public interface EmployeeDAO {
 
 	EmployeeInfoBean getEmployeeInfo(int id);
 
-	ArrayList<EmployeeInfoBean> getAllEmployeeInfo();
+	List<EmployeeInfoBean> getAllEmployeeInfo();
 
 	boolean createEmployeeInfo(EmployeeInfoBean bean);
 

@@ -2,6 +2,7 @@ package com.covalense.designpattern;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.covalense.designpattern.beans.EmployeeInfoBean;
 import com.covalense.designpattern.dao.EmployeeDAO;
@@ -17,10 +18,10 @@ public class DesignPatternsTest {
 		printInfo(dao.getEmployeeInfo(108));
 		printInfo(dao.getEmployeeInfo("102"));
 
-		/*
-		 * ArrayList<EmployeeInfoBean> beans = dao.getAllEmployeeInfo(); for
-		 * (EmployeeInfoBean bean : beans) { printInfo(bean); }
-		 */
+		List<EmployeeInfoBean> beans = dao.getAllEmployeeInfo();
+		for (EmployeeInfoBean bean : beans) {
+			printInfo(bean);
+		}
 
 		// Create an Emmployee info
 		EmployeeInfoBean empInf = new EmployeeInfoBean();

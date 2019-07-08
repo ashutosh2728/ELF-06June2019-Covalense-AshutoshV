@@ -1,19 +1,24 @@
-package com.covalense.hibernateapp.dto;
+package com.covalense.hibernateapp.cache;
 
-import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import lombok.Data;
 
-@Table(name = "employee_info")
+@Table(name = "newempinfo")
 @Entity
 @Data
-public class EmployeeInfoBean implements Serializable {
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class EmployeeNewInfoBean {
 	@Id
 	@Column(name = "ID")
 	private int id;
@@ -41,5 +46,4 @@ public class EmployeeInfoBean implements Serializable {
 	private int departmentId;
 	@Column(name = "mngr_Id")
 	private int managerId;
-
 }

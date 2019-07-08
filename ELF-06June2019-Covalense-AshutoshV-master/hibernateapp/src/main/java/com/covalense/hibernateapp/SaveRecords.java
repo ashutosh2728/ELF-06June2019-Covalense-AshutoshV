@@ -19,10 +19,10 @@ public class SaveRecords {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date dob = format.parse("1996-05-27");
 		Date joiningDate = format.parse("2018-06-29");
-		empInf.setId(121);
+		empInf.setId(6);
 		empInf.setName("Aditya");
 		empInf.setAge(28);
-		empInf.setDeptId(20);
+		empInf.setDepartmentId(20);
 		empInf.setDesignation("Software Engineer");
 		empInf.setDob(dob);
 		empInf.setJoiningDate(joiningDate);
@@ -31,9 +31,8 @@ public class SaveRecords {
 		empInf.setSalary(465694);
 		empInf.setEmail("aditya@gmail.com");
 		empInf.setGender("Male");
-		empInf.setMngrId(451);
+		empInf.setManagerId(451);
 		Transaction transaction = session.beginTransaction();
-		// session.save(empInf);
 		session.saveOrUpdate(empInf);
 		transaction.commit();
 		session.close();
