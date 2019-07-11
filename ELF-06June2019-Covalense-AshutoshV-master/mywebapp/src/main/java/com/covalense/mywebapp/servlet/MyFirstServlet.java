@@ -14,13 +14,24 @@ public class MyFirstServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String currentDateTime = new Date().toString();
+		String httpMethod = req.getMethod();
+		String protocol = req.getProtocol();
+		String requestUrl = req.getRequestURI().toString();
+		System.out.println("HTTP Method : " + httpMethod);
+		System.out.println("Protocol : " + protocol);
+		System.out.println("URL : " + requestUrl);
+
+		// Get Query String information
+		String fnameValue = req.getParameter("fname");
+		String lnameValue = req.getParameter("lname");
 
 		String htmlResponse = "<!DOCTYPE html>" + "<html>" + "<head>" + "<meta charset=\"ISO-8859-1\">"
 				+ "<title>My First HTML</title>" + "</head>" + "<body>" + "<h1>  Current date & time is :" + "<br>"
-				+ "<span style =\"color : red\"> </span> " + currentDateTime + "</h1>" + "</body>" + "</html>";
+				+ currentDateTime + "<br><br>" + "First Name : " + fnameValue + "<br>" + "Last Name : " + lnameValue
+				+ "<span style =\"color : red\"> </span> " + "</h1>" + "</body>" + "</html>";
 		// Send the above HTML Response to browser
 		resp.setContentType("text/html");
-		resp.setHeader("Refresh", "1");// Auto Refresh
+		// resp.setHeader("Refresh", "1");// Auto Refresh
 		PrintWriter out = resp.getWriter();
 		out.print(htmlResponse);
 	}
