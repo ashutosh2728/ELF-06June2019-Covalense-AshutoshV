@@ -1,0 +1,22 @@
+.demo {
+    color : red
+}
+#name {
+    color: green
+
+}
+#age {
+    font-size:  30px;
+}
+.button{
+    color : green;
+    border-radius: 5%
+
+}
+.button1{
+    color : red;
+    font-size: 50px;
+}
+.blue{
+    font-family: 'Courier New',
+}
