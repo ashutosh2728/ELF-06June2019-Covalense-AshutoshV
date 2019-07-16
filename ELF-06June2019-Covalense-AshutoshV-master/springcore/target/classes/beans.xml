@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id ="messageBean" class="com.covalense.springcore.beans.MessageBean" >
+<property name="message" value =" WELCOME TO SPRING"></property>
+
+</bean>
+<!-- <bean id ="employeeBean" class="com.covalense.springcore.beans.EmployeeBean" init-method="afterPropertiesSet"  destroy-method="destroy" scope="prototype">
+</bean> -->
+<bean id="employeeBean" class="com.covalense.springcore.beans.EmployeeBean" scope="prototype" autowire="byType">
+<property name="id" value="101"></property>
+<property name="name" value="Aditya"></property>
+<!-- <property name="bean" ref="departmentBean"></property> -->
+</bean>
+
+<bean id="it" class="com.covalense.springcore.beans.DepartmentBean" scope="prototype"  autowire-candidate="false">
+<property name="deptName" value="IT"></property>
+<property name="deptId" value="901"></property>
+</bean>
+
+<bean id="dev" class="com.covalense.springcore.beans.DepartmentBean" scope="prototype" autowire-candidate="false">
+<property name="deptName" value="Dev"></property>
+<property name="deptId" value="541"></property>
+</bean>
+
+<bean id="finance" class="com.covalense.springcore.beans.DepartmentBean" scope="prototype">
+<property name="deptName" value="Finance"></property>
+<property name="deptId" value="112"></property>
+</bean>
+
+
+</beans>
