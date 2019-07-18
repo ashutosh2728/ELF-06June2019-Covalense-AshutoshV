@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Images</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <style>
+        .imgheight {
+            height: 200px;
+            width: 200px;
+        }
+        .margin-for-element {
+            margin-top: 200px;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding-top: 30px;">
+        <div class="row">
+            <div class="col-3" onmouseover="showImages()" onmouseout="hideImages()">
+                <img class="imgheight" src="https://cdn.pixabay.com/photo/2019/07/13/14/23/mallard-4334881__340.jpg"/>
+            </div>
+            <div class="col-3" id="im2">
+                    <img class="imgheight" src="https://cdn.pixabay.com/photo/2019/07/15/17/36/lavender-fields-4339974_960_720.jpg"/>
+            </div>
+            <div class="col-3" id="im3">
+                    <img class="imgheight" src="https://cdn.pixabay.com/photo/2015/04/25/12/39/girls-739071_960_720.jpg"/>
+            </div>
+            <div class="col-3" id="im4">
+                    <img class="imgheight" src="https://cdn.pixabay.com/photo/2014/09/23/06/04/brothers-457237_960_720.jpg"/>
+            </div>
+        </div>
+    </div>
+    <script src = "image.js"></script>
+</body>
+</html>
