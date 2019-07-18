@@ -1,8 +1,6 @@
 package com.covalense.hibernateapp.cache;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import lombok.extern.java.Log;
 
@@ -16,16 +14,11 @@ public class HibernateCacheTest2 {
 	}// End of main
 
 	private static EmployeeNewInfoBean getEmployeeData(int id) {
-		Configuration config = new Configuration();
-		config.configure("com/covalense/hibernateapp/cache/hibernate.cache.cfg.xml");
-		config.addAnnotatedClass(EmployeeNewInfoBean.class);
-		SessionFactory factory = config.buildSessionFactory();
-		Session session = factory.openSession();
 
-		EmployeeNewInfoBean bean = session.get(EmployeeNewInfoBean.class, id);
-		// log.info("First " + bean1.toString());
-
-		session.close();
+		EmployeeNewInfoBean bean;
+		try (Session session = HibernateCacheUtil.openSession();) {
+			bean = session.get(EmployeeNewInfoBean.class, id);
+		}
 		return bean;
 	}
 }// End of class

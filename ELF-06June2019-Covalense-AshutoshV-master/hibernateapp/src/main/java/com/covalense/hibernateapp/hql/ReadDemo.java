@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
-import com.covalense.util.HibernateUtil;
+import com.covalense.hibernateapp.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 

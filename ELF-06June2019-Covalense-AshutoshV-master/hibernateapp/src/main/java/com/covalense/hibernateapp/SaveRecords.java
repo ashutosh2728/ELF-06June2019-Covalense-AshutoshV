@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.covalense.hibernateapp.dto.EmployeeInfoBean;
-import com.covalense.util.HibernateUtil;
+import com.covalense.hibernateapp.util.HibernateUtil;
 
 public class SaveRecords {
 	public static void main(String[] args) throws ParseException {

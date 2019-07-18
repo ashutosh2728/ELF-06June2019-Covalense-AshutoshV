@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import com.covalense.hibernateapp.dto.EmployeeInfoBean;
-import com.covalense.util.HibernateUtil;
+import com.covalense.hibernateapp.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 

@@ -10,7 +10,7 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 
 import com.covalense.hibernateapp.dto.EmployeeInfoBean;
-import com.covalense.util.HibernateUtil;
+import com.covalense.hibernateapp.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 

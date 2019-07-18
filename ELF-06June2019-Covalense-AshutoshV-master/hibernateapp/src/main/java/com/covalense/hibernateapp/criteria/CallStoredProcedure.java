@@ -7,7 +7,7 @@ import javax.persistence.StoredProcedureQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.covalense.util.HibernateUtil;
+import com.covalense.hibernateapp.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 
