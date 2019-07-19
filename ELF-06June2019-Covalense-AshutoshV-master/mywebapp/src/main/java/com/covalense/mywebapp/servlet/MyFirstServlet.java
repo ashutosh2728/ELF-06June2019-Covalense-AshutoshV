@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.covalense.mywebapp.beans.EmployeeInfoBean;
+
 public class MyFirstServlet extends HttpServlet {
 
 	@Override
@@ -44,6 +46,30 @@ public class MyFirstServlet extends HttpServlet {
 		// resp.setHeader("Refresh", "1");// Auto Refresh
 		PrintWriter out = resp.getWriter();
 		out.print(htmlResponse);
+
+		// Get the object from forword Servlet
+
+		// EmployeeInfoBean employeeInfoBean = (EmployeeInfoBean)
+		// req.getAttribute("info");
+		EmployeeInfoBean employeeInfoBean = (EmployeeInfoBean) ctx.getAttribute("info");
+		if (employeeInfoBean == null) {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style =\"color : red\"> EmployeeInfoBean not Found!!!</span></H1>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+		} else {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style =\"color : red\"> EmployeeInfoBean Found!!!</span></H1>");
+			out.print("<BR> Name ===> " + employeeInfoBean.getName());
+			out.print("<BR> Id ===>" + employeeInfoBean.getId());
+			out.print("<BR> EMAIL ===>" + employeeInfoBean.getEmail());
+			out.print("<BR> PHONE ===>" + employeeInfoBean.getPhone());
+			out.print("</BODY>");
+			out.print("</HTML>");
+
+		}
 	}
 
 }

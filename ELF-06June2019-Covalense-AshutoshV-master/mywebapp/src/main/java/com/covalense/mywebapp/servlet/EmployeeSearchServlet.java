@@ -67,5 +67,28 @@ public class EmployeeSearchServlet extends HttpServlet {
 			out.print("</BODY>");
 			out.print("</HTML>");
 		}
+
+		// Get the object from forword Servlet
+
+		EmployeeInfoBean employeeInfoBean = (EmployeeInfoBean) ctx.getAttribute("info");
+		if (employeeInfoBean == null) {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style =\"color : red\"> EmployeeInfoBean not Found!!!</span></H1>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+		} else {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1><span style =\"color : red\"> EmployeeInfoBean Found!!!</span></H1>");
+			out.print("<BR> Name ===> " + employeeInfoBean.getName());
+			out.print("<BR> Id ===>" + employeeInfoBean.getId());
+			out.print("<BR> EMAIL ===>" + employeeInfoBean.getEmail());
+			out.print("<BR> PHONE ===>" + employeeInfoBean.getPhone());
+			out.print("</BODY>");
+			out.print("</HTML>");
+
+		}
+
 	}
 }
