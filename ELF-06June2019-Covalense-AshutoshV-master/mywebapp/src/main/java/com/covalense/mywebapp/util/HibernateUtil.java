@@ -1,10 +1,10 @@
-package com.covalense.empweb.util;
+package com.covalense.mywebapp.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.covalense.empweb.beans.EmployeeInfoBean;
+import com.covalense.mywebapp.beans.EmployeeInfoBean;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
