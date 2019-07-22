@@ -1,0 +1,123 @@
+*::selection {
+    background: none;
+}
+
+html {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-size: 16px;
+    cursor: default;
+}
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: #222;
+}
+
+#timer {
+    margin: 1.5em auto;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Orbitron", sans-serif;
+    font-size: 4.5em;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+span {
+    display: inline-block;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-shadow: 0 0 5px #fff;
+}
+
+#mn {
+    width: 35%;
+}
+
+#sc {
+    width: 35%;
+}
+
+#buttons {
+    margin: 0 auto;
+    border: 0;
+    padding: 0.2em;
+    max-width: 4em;
+}
+
+#reset, #start {
+    display: inline-block;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 0.2em 0.5em;
+    min-width: 2.5em;
+    max-width: 3.5em;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.5em;
+    transition: all 0.5s ease;
+}
+
+#reset {
+    float: left;
+    border-color: #ff0;
+    box-shadow: 0 0 5px #ff0;
+    color: #ff0;
+    text-shadow: 0 0 2px #ff0;
+}
+
+#start {
+    float: right;
+    border-color: #0ff;
+    box-shadow: 0 0 5px #0ff;
+    color: #0ff;
+    text-shadow: 0 0 2px #0ff;
+}
+
+input[type=number] {
+    display: inline-block;
+    margin: 0.8em auto;
+    border: 0;
+    padding: 0.2em 0.3em;
+    min-width: 3em;
+    max-width: 3em;
+    font-size: 0.5em;
+    text-align: center;
+    box-shadow: 0 0 5px #fff;
+}
+
+input[type=number]:focus {
+    outline: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #bbb;
+}
+::-moz-placeholder {
+  color: #bbb;
+}
+:-ms-input-placeholder {
+  color: #bbb;
+}
+:-moz-placeholder {
+  color: #bbb;
+}
+
+#m, #s {
+    border-radius: 6px;
+}
+
+#m {
+    margin-right: 0.4em;
+}
+
+#s {
+    margin-left: 0.4em;
+}
