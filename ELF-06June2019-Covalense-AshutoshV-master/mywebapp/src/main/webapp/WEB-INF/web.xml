@@ -4,11 +4,17 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+   
    <context-param>
   <param-name>movie</param-name>
   <param-value>Sholay</param-value>
    </context-param>
   
+  <servlet>
+  <servlet-name>myJsp</servlet-name>
+<jsp-file>/MyFirstJSP.jsp</jsp-file>
+  </servlet>
+
   
   <servlet>
   <servlet-name>myFirstServlet</servlet-name>
@@ -71,5 +77,9 @@
   <servlet-mapping>
   	<servlet-name>ReadCookieServlet</servlet-name>
   	<url-pattern>/readCookie</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  <servlet-name>myJsp</servlet-name>
+  <url-pattern>/currentDateJSP</url-pattern>
   </servlet-mapping>
 </web-app>
