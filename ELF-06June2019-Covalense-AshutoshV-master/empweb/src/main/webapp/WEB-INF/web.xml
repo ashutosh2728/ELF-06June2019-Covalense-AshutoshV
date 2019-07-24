@@ -6,6 +6,10 @@
 
 
   <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+  <servlet-name>loginFail</servlet-name>
+<jsp-file>/loginFail.jsp</jsp-file>
+  </servlet>
   <servlet>
   
   	<servlet-name>LoginServlet</servlet-name>
@@ -43,6 +47,12 @@
   	<description></description>
   	<servlet-class>com.covalense.empweb.servlet.LoginPageServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<display-name>FrontServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.covalense.empweb.servlet.FrontServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -68,6 +78,15 @@
   	<servlet-name>LoginPageServlet</servlet-name>
   	<url-pattern>/loginpage</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>loginFail</servlet-name>
+  <url-pattern>/loginFail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<url-pattern>/front</url-pattern>
+  </servlet-mapping>
+  
     <session-config>
         <session-timeout>674800</session-timeout>
     </session-config>

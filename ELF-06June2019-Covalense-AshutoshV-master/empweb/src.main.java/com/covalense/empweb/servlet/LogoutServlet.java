@@ -30,13 +30,14 @@ public class LogoutServlet extends HttpServlet {
 
 		out.print("<HTML>");
 		out.print("<BODY>");
-		out.print("<H4><span style =\"color : red\">Thanks for visiting !!! </span></H4>");
-		out.print("<BR>");
+		// out.print("<H4><span style =\"color : red\">Thanks for visiting !!!
+		// </span></H4>");
+		// sout.print("<BR>");
 		out.print("</BODY>");
 		out.print("</HTML>");
 		RequestDispatcher dispatcher = null;
 		response.setContentType("text/html");
-		dispatcher = request.getRequestDispatcher("EMP/emp.html");
+		dispatcher = request.getRequestDispatcher("/loginFail?msg= Successfully logged out..Thanks for visiting..");
 		dispatcher.include(request, response);
 
 	}

@@ -24,7 +24,7 @@ public class LoginPageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Cookie dummyCookie = new Cookie("dummyCookie", "CheckCookiesEnabled");
+		Cookie dummyCookie = new Cookie("JSESSIONID", "CheckCookiesEnabled");
 		response.addCookie(dummyCookie);
 
 		PrintWriter out = response.getWriter();

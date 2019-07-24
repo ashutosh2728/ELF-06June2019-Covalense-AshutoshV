@@ -1,5 +1,5 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -25,6 +25,7 @@
   <h2>Login</h2>
   <form action="http://localhost/empweb/login" method="post" class="" >
     <div class="form-group"  >
+    <H6><span style ="color : red"> <%= request.getParameter("msg") %> </span></H6>
       <label for="email">Email:</label>
       <input type="id" class="form-control" id="id" placeholder="Enter Employee ID" name="id">
       <label for="password">Password:</label>
@@ -44,7 +45,7 @@
     </div> -->
     <div class="row"> 
     <input type="submit" name="sbmt"  class="btn btn-primary" style="margin-left: 20px ; background : mediumblue" >
-      </input>
+        </input>
     <br>
     <br>
 
@@ -66,4 +67,3 @@
 </div>
 </body>
 </html>
-
