@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head><style>
+.blue{
+    color: aliceblue;
+}
+</style>
+<body>
+    <!-- target Container -->
+    <div id="react-container"></div>
+<!-- react library and ReactDOM -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script>
+        // Pure React and JavaScript code
+        const items=['Pen','Bag','Pencil'];
+    const item = React.createElement("h1",{className :  'blue',item : items },"Baked Salomon")
+
+    const list =React.createElement('ul',null,React.createElement('li',null,"Item"),React.createElement('li',null,"Item1"),React.createElement('li',null,"Item2"));
+   
+    const itemsArray =  React.createElement("ul",null,
+   items.map(function(val,index){
+      return React.createElement('li',{key : index},val);
+   })
+   
+   )
+    console.log(item);
+    console.log(itemsArray);
+    ReactDOM.render(itemsArray, document.getElementById('react-container'));
+        
+   
+    </script>
+</body>
+</html>
