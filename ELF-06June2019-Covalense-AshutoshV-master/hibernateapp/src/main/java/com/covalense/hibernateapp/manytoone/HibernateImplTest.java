@@ -26,10 +26,10 @@ public class HibernateImplTest {
 			e.printStackTrace();
 		}
 
-		empInf.setId(2050);
+		empInf.setId(121321);
 		empInf.setName("Gangadhar");
 		empInf.setAge(28);
-		empInf.setDepartmentId(20);
+		// empInf.setDepartmentId(20);
 		empInf.setDesignation("Software Engineer");
 		empInf.setDob(dob);
 		empInf.setJoiningDate(joiningDate);
@@ -38,7 +38,7 @@ public class HibernateImplTest {
 		empInf.setSalary(465694);
 		empInf.setEmail("aditya@gmail.com");
 		empInf.setGender("Male");
-		empInf.setManagerId(451);
+		// empInf.setManagerId(451);
 
 		EmployeeOtherInfoBean empOtherInf = new EmployeeOtherInfoBean();
 		empOtherInf.setPan("ASVPV7200R");
@@ -70,6 +70,7 @@ public class HibernateImplTest {
 		addressInfoBean1.setState("MP");
 		addressInfoBean1.setLandmark("Main bus stand");
 		addressInfoBean1.setPincode(480447);
+		addressInfoBean1.setAddressPKBean(adressPKBean1);
 		EmployeeAddressInfoBean addressInfoBean2 = new EmployeeAddressInfoBean();
 		addressInfoBean2.setAddressPKBean(adressPKBean2);
 		addressInfoBean2.setAddress1("Sai Star PG");
@@ -79,6 +80,7 @@ public class HibernateImplTest {
 		addressInfoBean2.setState("Karnataka");
 		addressInfoBean2.setLandmark("Behind mythri mart");
 		addressInfoBean2.setPincode(560029);
+		addressInfoBean2.setAddressPKBean(adressPKBean2);
 
 		EmployeeEducationalInfoPKBean educationalInfoPKBean1 = new EmployeeEducationalInfoPKBean();
 		educationalInfoPKBean1.setEducationType("Graduation");
@@ -92,6 +94,7 @@ public class HibernateImplTest {
 		educationInfoBean1.setUniversity("Pune University");
 		educationInfoBean1.setPercentage(81.8);
 		educationInfoBean1.setYop("2014");
+		educationInfoBean1.setEducationalInfoPKBean(educationalInfoPKBean1);
 
 		EmployeeEducationalInfoPKBean educationalInfoPKBean2 = new EmployeeEducationalInfoPKBean();
 		educationalInfoPKBean2.setEducationType("Post Graduation");
@@ -105,6 +108,7 @@ public class HibernateImplTest {
 		educationInfoBean2.setUniversity("Pune University");
 		educationInfoBean2.setPercentage(71.8);
 		educationInfoBean2.setYop("2018");
+		educationInfoBean2.setEducationalInfoPKBean(educationalInfoPKBean2);
 
 		EmployeeExperienceInfoPKBean experienceInfoPKBean1 = new EmployeeExperienceInfoPKBean();
 		experienceInfoPKBean1.setCompanyName("TCS");
@@ -114,6 +118,7 @@ public class HibernateImplTest {
 		experienceInfoBean1.setDesignation("Software Engineer");
 		experienceInfoBean1.setJoiningDate(ejd1);
 		experienceInfoBean1.setLeavingDate(eld1);
+		experienceInfoBean1.setEmployeeExperienceInfoPKBean(experienceInfoPKBean1);
 
 		EmployeeExperienceInfoPKBean experienceInfoPKBean2 = new EmployeeExperienceInfoPKBean();
 		experienceInfoPKBean2.setCompanyName("IBM");
@@ -123,6 +128,7 @@ public class HibernateImplTest {
 		experienceInfoBean2.setDesignation("Senior Software Engineer");
 		experienceInfoBean2.setJoiningDate(ejd2);
 		experienceInfoBean2.setLeavingDate(eld2);
+		experienceInfoBean2.setEmployeeExperienceInfoPKBean(experienceInfoPKBean2);
 
 		HibernateImpl hibernateImpl = new HibernateImpl();
 		hibernateImpl.createEmployee(empInf, empOtherInf, Arrays.asList(addressInfoBean1, addressInfoBean2),

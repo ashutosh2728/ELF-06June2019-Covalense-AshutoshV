@@ -7,15 +7,15 @@ import org.hibernate.cfg.Configuration;
 
 import com.covalense.hibernateapp.manytoone.EmployeeInfoBean;
 
-public class HibernateImpl {
+public class HibernateImpl2 {
 
 	private Configuration configuration = new Configuration();
 	private SessionFactory factory = configuration.configure().buildSessionFactory();
 
-	public void createTraining(TrainingInfoBean trainingInfoBean) {
+	public void createEmployee(EmployeeInfoBean bean) {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		session.save(trainingInfoBean);
+		session.save(bean);
 		transaction.commit();
 		session.close();
 	}

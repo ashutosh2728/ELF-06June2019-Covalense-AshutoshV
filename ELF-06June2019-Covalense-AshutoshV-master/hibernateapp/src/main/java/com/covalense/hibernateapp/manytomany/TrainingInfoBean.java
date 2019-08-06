@@ -3,6 +3,7 @@ package com.covalense.hibernateapp.manytomany;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,12 +12,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.covalense.hibernateapp.manytoone.EmployeeInfoBean;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "training_info")
 public class TrainingInfoBean implements Serializable {
+
 	@Id
 	@Column(name = "COURSE_ID")
 	private int courseId;
@@ -27,8 +31,8 @@ public class TrainingInfoBean implements Serializable {
 	@Column(name = "COURSE_TYPE")
 	private String courseType;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "employee_training", joinColumns = { @JoinColumn(name = "COURSE_ID") }, inverseJoinColumns = {
-			@JoinColumn(name = "id") })
+			@JoinColumn(name = "ID") })
 	List<EmployeeInfoBean> employeeInfoBeans;
 }// End of TrainingInfoBean

@@ -17,6 +17,7 @@ public class GetAllRestrictions {
 	public static void main(String[] args) {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.openSession();
+
 		Criteria criteria = session.createCriteria(EmployeeInfoBean.class).add(Restrictions.gt("salary", 10000.00));
 		// Criterion criterion = Restrictions.gt("salary", 15000.0);
 		// criteria.add(criterion);

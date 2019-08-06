@@ -21,4 +21,5 @@ public class HibernateCacheTest2 {
 		}
 		return bean;
 	}
+
 }// End of class

@@ -38,6 +38,7 @@ public class PrepareDataUtil {
 		empInf.setEmail("aditya@gmail.com");
 		empInf.setGender("Male");
 		empInf.setManagerId(451);
+		empInf.setPassword("aashu");
 
 		EmployeeOtherInfoBean empOtherInf = new EmployeeOtherInfoBean();
 		empOtherInf.setPan("ASVPV7200P");
@@ -52,7 +53,7 @@ public class PrepareDataUtil {
 		empOtherInf.setRelegion("Hindu");
 		empOtherInf.setSpouseName("");
 		empOtherInf.setAdhar(16362132);
-		empInf.setOtherInfo(empOtherInf);
+		empOtherInf.setInfoBean(empInf);
 		return empInf;
 	}
 }

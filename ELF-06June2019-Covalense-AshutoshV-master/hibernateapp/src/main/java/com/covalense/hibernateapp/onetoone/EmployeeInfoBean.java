@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -16,10 +15,16 @@ import lombok.Data;
 @Table(name = "employee_info")
 @Entity
 @Data
+
 public class EmployeeInfoBean implements Serializable {
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private EmployeeOtherInfoBean otherInfo;
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @PrimaryKeyJoinColumn private EmployeeOtherInfoBean otherInfo;
+	 */
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "infoBean")
+	private EmployeeOtherInfoBean employeeOtherInfoBean;
 
 	@Id
 	@Column(name = "ID")
@@ -48,5 +53,6 @@ public class EmployeeInfoBean implements Serializable {
 	private int departmentId;
 	@Column(name = "mngr_Id")
 	private int managerId;
-
+	@Column(name = "password")
+	private String password;
 }

@@ -3,18 +3,35 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/covalense_db</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.connection.pool_size">1</property>
-        <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-<!--         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/covalense_db</property>
+		<!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/covalense_db</property> -->
 
-<!--         <mapping class="com.covalense.hibernateapp.dto.EmployeeNewInfoBean" /> -->
-       <!--  <mapping class="com.covalense.hibernateapp.dto.EmployeeInfoBean" /> -->
-    </session-factory>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.pool_size">1</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+	<!-- 	<property name="hibernate.hbm2ddl.auto">update</property> -->
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+
+		<mapping
+			class="com.covalense.hibernateapp.manytoone.EmployeeInfoBean" />
+		<mapping
+			class="com.covalense.hibernateapp.manytoone.EmployeeOtherInfoBean" />
+		<mapping
+			class="com.covalense.hibernateapp.manytoone.EmployeeAddressInfoBean" />
+		<mapping
+			class="com.covalense.hibernateapp.manytoone.EmployeeEducationalInfoBean" />
+		<mapping
+			class="com.covalense.hibernateapp.manytoone.EmployeeExperienceInfoBean" />
+		<mapping
+			class="com.covalense.hibernateapp.manytomany.TrainingInfoBean" />
+			<mapping
+			class="com.covalense.hibernateapp.dto.DepartmentInfoBean" />
+		
+
+	</session-factory>
 </hibernate-configuration>

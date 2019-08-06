@@ -17,7 +17,7 @@ public class HibernateImplTest {
 			e.printStackTrace();
 		}
 
-		empInf.setId(1517);
+		empInf.setId(2002);
 		empInf.setName("Gangadhar");
 		empInf.setAge(28);
 		empInf.setDepartmentId(20);
@@ -32,10 +32,11 @@ public class HibernateImplTest {
 		empInf.setManagerId(451);
 
 		EmployeeOtherInfoBean empOtherInf = new EmployeeOtherInfoBean();
+
 		empOtherInf.setPan("ASVPV7200R");
 		empOtherInf.setBloodGrp("AB-");
-		empOtherInf.setChallenged(false);
-		empOtherInf.setMarried(true);
+		// empOtherInf.setChallenged(false);
+		// empOtherInf.setMarried(true);
 		empOtherInf.setEmergencyContactName("Aakash");
 		empOtherInf.setMotherName("Jaya");
 		empOtherInf.setNationality("Indian");
@@ -45,7 +46,8 @@ public class HibernateImplTest {
 		empOtherInf.setSpouseName("Akansha" + "");
 		empOtherInf.setAdhar(16362132);
 		empOtherInf.setInfoBean(empInf);
+		empInf.setEmployeeOtherInfoBean(empOtherInf);
 		HibernateImpl hibernateImpl = new HibernateImpl();
-		hibernateImpl.createEmployee(empInf, empOtherInf);
+		hibernateImpl.createEmployee(empInf);
 	}
 }

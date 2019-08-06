@@ -17,6 +17,7 @@ import lombok.Data;
 @Entity
 @Data
 @Cacheable
+
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class EmployeeNewInfoBean {
 	@Id
