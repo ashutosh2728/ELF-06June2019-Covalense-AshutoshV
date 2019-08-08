@@ -11,9 +11,24 @@
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property> 
 <!--         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
 
-<!--         <mapping class="com.covalense.designpattern.beans.EmployeeInfoBean" /> -->
+       
+          	<mapping
+			class="com.covalense.empspringmvc.dto.EmployeeInfoBean" />
+		<mapping
+			class="com.covalense.empspringmvc.dto.EmployeeOtherInfoBean" />
+		<mapping
+			class="com.covalense.empspringmvc.dto.EmployeeAddressInfoBean" />
+		<mapping
+			class="com.covalense.empspringmvc.dto.EmployeeEducationalInfoBean" />
+		<mapping
+			class="com.covalense.empspringmvc.dto.EmployeeExperienceInfoBean" />
+		<!-- <mapping
+			class="com.covalense.empspringmvc.dto.TrainingInfoBean" />
+			<mapping
+			class="com.covalense.empspringmvc.dto.DepartmentInfoBean" /> -->
         
     </session-factory>
 </hibernate-configuration>

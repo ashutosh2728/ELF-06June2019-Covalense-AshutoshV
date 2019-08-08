@@ -49,7 +49,7 @@
     <br>
     <br>
 
-    <a href="./create" style="margin-left: 70px" type="button" class="btn btn-primary style="margin-left: 20px">Create</a>
+    <a href="../emp/create" style="margin-left: 70px" type="button" class="btn btn-primary style="margin-left: 20px">Create</a>
  
 <br><br>
     <button type="button" name="Forgot" onclick="createTable()" class="btn btn-primary" style="margin-left: 50px ; background: mediumblue">

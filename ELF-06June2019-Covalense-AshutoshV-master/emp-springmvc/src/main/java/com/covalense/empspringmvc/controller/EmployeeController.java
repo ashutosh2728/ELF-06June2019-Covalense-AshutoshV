@@ -1,39 +1,43 @@
 package com.covalense.empspringmvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.covalense.empspringmvc.dao.EmployeeDAO;
-import com.covalense.empspringmvc.dao.EmployeeDAOFactory;
 import com.covalense.empspringmvc.dto.EmployeeInfoBean;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
-	/*
-	 * @RequestMapping(path = "/getMessage", method = RequestMethod.GET) public
-	 * ModelAndView getMessage() { ModelAndView modelAndView = new ModelAndView();
-	 * // modelAndView.setViewName("../WEB-INF/views/messagePage.jsp");
-	 * modelAndView.setViewName("messagePage"); return modelAndView; }
-	 * 
-	 * @GetMapping("/setMessage") public ModelAndView getMessage(ModelAndView
-	 * modelAndView) { modelAndView.setViewName("messagePage"); return modelAndView;
-	 * }
-	 */
-	@GetMapping("/empLogin")
-	public String login(EmployeeInfoBean infoBean, ModelMap modelMap) {
-		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
-		EmployeeInfoBean bean = dao.getEmployeeInfo(infoBean.getId());
-		if (bean.getPassword().equals(infoBean.getPassword())
-				&& bean.getId() == Integer.parseInt(infoBean.getPassword())) {
-			return "login";
+	@Autowired
+	@Qualifier("hibernate")
+	private EmployeeDAO dao;
 
-		} else {
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+		binder.registerCustomEditor(Date.class, editor);
+	}
 
-			return "";
-		}
+	@GetMapping("/search")
+	public String employeeSearch(int id, ModelMap modelMap) {
+
+		List<EmployeeInfoBean> bean = dao.getAllEmployeeInfo(id);
+		// modelMap.addAttribute("infoBean", infoBean);
+		modelMap.addAttribute("bean", bean);
+		return "/searchemployee";
+
 	}
 
 }

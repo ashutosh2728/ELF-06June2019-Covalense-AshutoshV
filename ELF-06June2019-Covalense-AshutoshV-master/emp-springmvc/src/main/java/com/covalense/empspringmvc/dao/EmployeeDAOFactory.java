@@ -1,20 +1,21 @@
 package com.covalense.empspringmvc.dao;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
 public class EmployeeDAOFactory {
-	private static String dbInteractionType = "hibernate";
 
 	private EmployeeDAOFactory() {
-
 	}
 
-	public static EmployeeDAO getInstance() {
-		EmployeeDAO dao = null;
-		if (dbInteractionType.equals("jdbc")) {
-			dao = new EmployeeDAOJDBCImpl();
-		} else if (dbInteractionType.equals("hibernate")) {
-			dao = new EmployeeDAOHibernateImpl();
-		}
-		return dao;
-	}// End of getInstance()
+	@Bean("hibernate")
+	public static EmployeeDAO getHibernateInstance() {
+		return new EmployeeDAOHibernateImpl();
+	}
 
+	@Bean("jdbc")
+	public static EmployeeDAO getJDBCInstance() {
+		return new EmployeeDAOJDBCImpl();
+	}
 }// End of Class
