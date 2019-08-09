@@ -28,6 +28,9 @@
         <div>
 		<a class=\"btn btn-primary\"  href='./logout' style="">Log out</a>
         </div>
+         <div>
+		<a class=\"btn btn-primary\"  href='../emp/updateEmployee' style="">Update</a>
+        </div>
     </nav>
     
   <div class="container">
@@ -43,8 +46,8 @@
       <tr><th>Salary</th><td>${ infoBean.salary}</td></tr>   
       <tr><th>Joining Date</th><td>${ infoBean.joiningDate}</td></tr>    
       <tr><th>Account Number</th><td>${ infoBean.accountNumber}</td></tr>    
-      <tr><th>Department ID</th><td>${ infoBean.departmentId }</td></tr>    
-      <tr><th>Manager ID</th><td>${ infoBean.managerId}</td></tr>    
+      <tr><th>Department ID</th><td>${ infoBean.departmentInfoBean }</td></tr>    
+      <tr><th>Manager ID</th><td>${ infoBean.mngId}</td></tr>    
       </thead>
       </div>	
         </table> 

@@ -120,7 +120,7 @@ public class FirstController {
 			employeeExperienceInfoBean.getEmployeeExperienceInfoPKBean().setBean(infoBean);
 		}
 
-		EmployeeOtherInfoBean otherInfoBean = infoBean.getEmployeeOtherInfoBean();
+		EmployeeOtherInfoBean otherInfoBean = infoBean.getOtherInfo();
 		otherInfoBean.setInfoBean(infoBean);
 		System.out.println(dao + "aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		boolean result = dao.createEmployeeInfo(infoBean);
@@ -182,4 +182,16 @@ public class FirstController {
 		return validateSession(session, modelMap, url, msg);
 	}
 
+	@GetMapping("/updateEmployee")
+	public String getUpdateEmployee() {
+		return "updateEmployee";
+	}
+
+	@PostMapping("/updateEmployee")
+	public String updateEmployee(EmployeeInfoBean infoBean, int mngId) {
+		EmployeeInfoBean mngBean = dao.getEmployeeInfo(mngId);
+		infoBean.setMngId(mngBean);
+		dao.updateEmployeeInfo(infoBean);
+		return "homePage";
+	}
 }

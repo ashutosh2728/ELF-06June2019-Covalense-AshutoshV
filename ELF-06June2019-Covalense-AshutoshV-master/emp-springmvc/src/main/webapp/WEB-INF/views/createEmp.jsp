@@ -174,7 +174,7 @@
 								<option selected>Married</option>
 								<option value="true">Married</option>
 								<option value="false">Unmarried</option>
-								<!-- <option value="divorcee">Divorcee</option> -->
+								<option value="divorcee">Divorcee</option>
 							</select>
 						</div>
 						<div class="col">
