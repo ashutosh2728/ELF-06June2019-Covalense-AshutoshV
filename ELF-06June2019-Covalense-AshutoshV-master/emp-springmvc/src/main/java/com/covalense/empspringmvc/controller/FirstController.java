@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.PropertySource;
@@ -22,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.covalense.empspringmvc.dao.EmployeeDAO;
 import com.covalense.empspringmvc.dao.EmployeeDAOFactoryOld;
+import com.covalense.empspringmvc.dto.EmployeeAddressInfoBean;
+import com.covalense.empspringmvc.dto.EmployeeEducationalInfoBean;
+import com.covalense.empspringmvc.dto.EmployeeExperienceInfoBean;
 import com.covalense.empspringmvc.dto.EmployeeInfoBean;
 import com.covalense.empspringmvc.dto.EmployeeOtherInfoBean;
 
@@ -29,6 +34,10 @@ import com.covalense.empspringmvc.dto.EmployeeOtherInfoBean;
 @RequestMapping("/emp")
 @PropertySource("classpath:emp.properties")
 public class FirstController {
+
+	@Autowired
+	@Qualifier("hibernate")
+	EmployeeDAO dao;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -94,16 +103,35 @@ public class FirstController {
 	}
 
 	@PostMapping("/createEmployee")
-	public String createEmployee(EmployeeInfoBean infoBean, @Value("${dbInteractionType}") String dbInteractionType) {
+	public String createEmployee(EmployeeInfoBean infoBean, ModelMap map) {
 
-		EmployeeDAO dao = EmployeeDAOFactoryOld.getInstance(dbInteractionType);
+		List<EmployeeEducationalInfoBean> eduBeans = infoBean.getEmployeeEducationalInfoBean();
+		for (EmployeeEducationalInfoBean employeeEducationalInfoBean : eduBeans) {
+			employeeEducationalInfoBean.getEducationalInfoPKBean().setBean(infoBean);
+		}
+
+		List<EmployeeAddressInfoBean> addressInfoBeans = infoBean.getAddressInfoBeanList();
+		for (EmployeeAddressInfoBean employeeAddressInfoBean : addressInfoBeans) {
+			employeeAddressInfoBean.getAddressPKBean().setBean(infoBean);
+		}
+
+		List<EmployeeExperienceInfoBean> employeeExperienceInfoBeans = infoBean.getEmployeeExperienceInfoBean();
+		for (EmployeeExperienceInfoBean employeeExperienceInfoBean : employeeExperienceInfoBeans) {
+			employeeExperienceInfoBean.getEmployeeExperienceInfoPKBean().setBean(infoBean);
+		}
+
+		EmployeeOtherInfoBean otherInfoBean = infoBean.getEmployeeOtherInfoBean();
+		otherInfoBean.setInfoBean(infoBean);
+		System.out.println(dao + "aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		boolean result = dao.createEmployeeInfo(infoBean);
 
 		if (result) {
-			return "/loginPage";
+			map.addAttribute("msg", "Employee added successfully");
 		} else {
-			return "/loginPage";
+			map.addAttribute("msg", "Employee added successfully");
+
 		}
+		return "/loginPage";
 
 	}
 

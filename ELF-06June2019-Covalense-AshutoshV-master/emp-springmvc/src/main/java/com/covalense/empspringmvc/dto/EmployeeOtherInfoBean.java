@@ -30,7 +30,7 @@ public class EmployeeOtherInfoBean implements Serializable {
 	@Column(name = "isChallenged")
 	private boolean isChallenged;
 	@Column(name = "emergencty_Contact_Number")
-	private int emergencyContactNum;
+	private Integer emergencyContactNum;
 	@Column(name = "emergency_Contact_Name")
 	private String emergencyContactName;
 	@Column(name = "nationality")
@@ -46,6 +46,6 @@ public class EmployeeOtherInfoBean implements Serializable {
 	@Column(name = "passport")
 	private String passport;
 	@Column(name = "adhar")
-	private int adhar;
+	private Integer adhar;
 
 }

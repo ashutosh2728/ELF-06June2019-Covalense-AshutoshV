@@ -29,14 +29,14 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				bean.setName(rs.getString("NAME"));
 				bean.setAge(rs.getInt("AGE"));
 				bean.setDesignation(rs.getString("DESIGNATION"));
-				bean.setDepartmentId(rs.getInt("DEPT_ID"));
+				// bean.setDepartmentId(rs.getInt("DEPT_ID"));
 				bean.setDob(rs.getDate("DOB"));
 				bean.setAccountNumber(rs.getInt("ACCOUNT_NUMBER"));
 				bean.setJoiningDate(rs.getDate("JOINING_DATE"));
 				bean.setPhone(rs.getInt("PHONE"));
 				bean.setSalary(rs.getDouble("SALARY"));
 				bean.setEmail(rs.getString("EMAIL"));
-				bean.setManagerId(rs.getInt("MNGR_ID"));
+				// bean.setManagerId(rs.getInt("MNGR_ID"));
 				bean.setGender(rs.getString("Gender"));
 				beans.add(bean);
 			} // End of while
@@ -66,14 +66,14 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				bean.setName(rs.getString("NAME"));
 				bean.setAge(rs.getInt("AGE"));
 				bean.setDesignation(rs.getString("DESIGNATION"));
-				bean.setDepartmentId(rs.getInt("DEPT_ID"));
+				// bean.setDepartmentId(rs.getInt("DEPT_ID"));
 				bean.setDob(rs.getDate("DOB"));
 				bean.setAccountNumber(rs.getInt("ACCOUNT_NUMBER"));
 				bean.setJoiningDate(rs.getDate("JOINING_DATE"));
 				bean.setPhone(rs.getInt("PHONE"));
 				bean.setSalary(rs.getDouble("SALARY"));
 				bean.setEmail(rs.getString("EMAIL"));
-				bean.setManagerId(rs.getInt("MNGR_ID"));
+				// bean.setManagerId(rs.getInt("MNGR_ID"));
 				bean.setGender(rs.getString("Gender"));
 
 			} // End of while

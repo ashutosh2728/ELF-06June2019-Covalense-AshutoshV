@@ -172,9 +172,9 @@
 							<label for="inputStatus">Marital Status</label> <select
 								id="inputStatus" name="otherInfo.isMarried" class="form-control">
 								<option selected>Married</option>
-								<option value="married">Married</option>
-								<option value="unmarried">Unmarried</option>
-								<option value="divorcee">Divorcee</option>
+								<option value="true">Married</option>
+								<option value="false">Unmarried</option>
+								<!-- <option value="divorcee">Divorcee</option> -->
 							</select>
 						</div>
 						<div class="col">
@@ -228,8 +228,8 @@
 								id="inputphysicallych" name="otherInfo.isChallenged"
 								class="form-control">
 								<option selected>---Select One---</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="true">Yes</option>
+								<option value="false">No</option>
 							</select>
 						</div>
 						<div class="col">
@@ -664,7 +664,7 @@
 										<div class="input-group">
 											<span id="leavingdatePrepend" class="input-group-addon">Leaving
 												Date</span> <input id="leavingdate" name="employeeExperienceInfoBean[0].leavingDate"
-												class="form-control" placeholder="dd-mm-yyyy" type="text">
+												class="form-control" placeholder="dd-mm-yyyy" type="date">
 
 										</div>
 
@@ -678,7 +678,7 @@
 										<div class="input-group">
 											<span id="joiningdatePrepend" class="input-group-addon">Joining
 												Date</span> <input id="joiningdate" name="employeeExperienceInfoBean[0].joiningDate"
-												class="form-control" placeholder="dd-mm-yyyy" type="text">
+												class="form-control" placeholder="dd-mm-yyyy" type="date">
 
 										</div>
 
@@ -735,7 +735,7 @@
 										<div class="input-group">
 											<span id="leavingdatePrepend" class="input-group-addon">Leaving
 												Date</span> <input id="leavingdate" name="employeeExperienceInfoBean[1].leavingDate"
-												class="form-control" placeholder="dd-mm-yyyy" type="text">
+												class="form-control" placeholder="dd-mm-yyyy" type="date">
 
 										</div>
 
@@ -749,7 +749,7 @@
 										<div class="input-group">
 											<span id="joiningdatePrepend" class="input-group-addon">Joining
 												Date</span> <input id="joiningdate" name="employeeExperienceInfoBean[1].joiningDate"
-												class="form-control" placeholder="dd-mm-yyyy" type="text">
+												class="form-control" placeholder="dd-mm-yyyy" type="date">
 
 										</div>
 

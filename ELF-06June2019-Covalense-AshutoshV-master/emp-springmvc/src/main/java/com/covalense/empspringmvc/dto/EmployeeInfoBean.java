@@ -30,29 +30,27 @@ public class EmployeeInfoBean implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeExperienceInfoPKBean.bean")
 	private List<EmployeeExperienceInfoBean> employeeExperienceInfoBean;
-
 	/*
 	 * @ManyToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfoBeans")
 	 * private List<TrainingInfoBean> trainingInfoBean;
 	 */
-
 	@Id
 	@Column(name = "ID")
-	private int id;
+	private Integer id;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "age")
-	private int age;
+	private Integer age;
 	@Column(name = "gender")
 	private String gender;
 	@Column(name = "salary")
-	private double salary;
+	private Double salary;
 	@Column(name = "phone")
-	private int phone;
+	private Integer phone;
 	@Column(name = "joining_date")
 	private Date joiningDate;
 	@Column(name = "Account_Number")
-	private int accountNumber;
+	private Integer accountNumber;
 	@Column(name = "Email")
 	private String email;
 	@Column(name = "Designation")
@@ -60,10 +58,21 @@ public class EmployeeInfoBean implements Serializable {
 	@Column(name = "DOB")
 	private Date dob;
 	@Column(name = "dept_id")
-	private int departmentId;
+	private Integer departmentId;
 	@Column(name = "mngr_Id")
-	private int managerId;
+	private Integer managerId;
 	@Column(name = "password")
 	private String password;
+	/*
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "DEPT_ID", referencedColumnName = "DEPT_ID") private
+	 * DepartmentInfoBean departmentInfoBean;
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "MNGR_ID", referencedColumnName = "id") private
+	 * EmployeeInfoBean mngId;
+	 */
 
 }

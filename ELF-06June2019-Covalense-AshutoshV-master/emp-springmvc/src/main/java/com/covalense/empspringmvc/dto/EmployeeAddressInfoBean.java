@@ -31,6 +31,6 @@ public class EmployeeAddressInfoBean implements Serializable {
 	@Column(name = "COUNTRY")
 	private String country;
 	@Column(name = "PINCODE")
-	private int pincode;
+	private Integer pincode;
 
 }

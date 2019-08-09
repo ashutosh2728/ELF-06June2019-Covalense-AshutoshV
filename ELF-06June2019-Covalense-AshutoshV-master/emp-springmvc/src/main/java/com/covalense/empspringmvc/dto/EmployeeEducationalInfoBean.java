@@ -29,7 +29,7 @@ public class EmployeeEducationalInfoBean implements Serializable {
 	@Column(name = "YOP")
 	private String yop;
 	@Column(name = "PERCENTAGE")
-	private double percentage;
+	private Double percentage;
 	@Column(name = "LOCATION")
 	private String location;
 
