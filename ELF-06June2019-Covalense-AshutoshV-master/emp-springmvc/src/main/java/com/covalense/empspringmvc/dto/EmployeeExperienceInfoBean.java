@@ -8,9 +8,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import lombok.Data;
-
-@Data
 @Entity
 @Table(name = "employee_experience_info")
 public class EmployeeExperienceInfoBean implements Serializable {
@@ -23,5 +20,37 @@ public class EmployeeExperienceInfoBean implements Serializable {
 	private Date joiningDate;
 	@Column(name = "LEAVING_DATE")
 	private Date leavingDate;
+
+	public EmployeeExperienceInfoPKBean getEmployeeExperienceInfoPKBean() {
+		return employeeExperienceInfoPKBean;
+	}
+
+	public void setEmployeeExperienceInfoPKBean(EmployeeExperienceInfoPKBean employeeExperienceInfoPKBean) {
+		this.employeeExperienceInfoPKBean = employeeExperienceInfoPKBean;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public Date getJoiningDate() {
+		return joiningDate;
+	}
+
+	public void setJoiningDate(Date joiningDate) {
+		this.joiningDate = joiningDate;
+	}
+
+	public Date getLeavingDate() {
+		return leavingDate;
+	}
+
+	public void setLeavingDate(Date leavingDate) {
+		this.leavingDate = leavingDate;
+	}
 
 }

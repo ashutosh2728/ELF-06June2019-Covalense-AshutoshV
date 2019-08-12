@@ -472,58 +472,7 @@
 								}
 							%>
 
-							<!-- <h3>Employee Address 2</h3>
-						
-							<div class="row">
-							<div class="col">
-									<label for="AddressType">Address Type</label> <input type="text"
-										name="addressInfoBeanList[1].addressPKBean.addressType" class="form-control" placeholder="Enter AddressType">
-								</div>
-								<div class="col">
-									<label for="exampleInputCity">City</label> <input type="text" name="addressInfoBeanList[1].city"
-										class="form-control" placeholder="Enter City">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<label for="exampleInputState">State</label> <input type="text" name="addressInfoBeanList[1].state"
-										class="form-control" placeholder="Enter State">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<label for="exampleInputAddress1">Address1</label> <input
-										type="text" name="addressInfoBeanList[1].address1" class="form-control"
-										placeholder="Enter Address Line1">
-								</div>
-								<div class="col">
-									<label for="exampleInputCountry">Country</label> <input name="addressInfoBeanList[1].country"
-										type="text" class="form-control" placeholder="Enter Country">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<label for="exampleInputAddress2">Address2</label> <input
-										type="text" class="form-control" name="addressInfoBeanList[1].address2"
-										placeholder="Enter Address Line2">
-								</div>
-								<div class="col">
-									<label for="exampleInputPincode">Pincode</label> <input name="addressInfoBeanList[1].pincode"
-										type="text" class="form-control" placeholder="Enter Pincode">
-								</div>
-							</div>
-							<div class="row">
-
-								<div class="col-6">
-									<label for="exampleInputLandmark">Landmark</label> <input name="addressInfoBeanList[1].landmark"
-										type="text" class="form-control" placeholder="Enter Landmark">
-								</div>
-
-							</div>
-					
-					</div>
-				</div>
-			</div> -->
+				
 							<%
 								List<EmployeeEducationalInfoBean> educationalInfoBeans = infoBean.getEmployeeEducationalInfoBean();
 								for (EmployeeEducationalInfoBean employeeEducationalInfoBean : educationalInfoBeans) {
@@ -678,7 +627,7 @@
 										%>
 
 
- --><%
+ 								<%
 								List<EmployeeExperienceInfoBean> experienceInfoBeans = infoBean.getEmployeeExperienceInfoBean();
 								for (EmployeeExperienceInfoBean experienceInfoBean : experienceInfoBeans) {
 									int i = 0;
