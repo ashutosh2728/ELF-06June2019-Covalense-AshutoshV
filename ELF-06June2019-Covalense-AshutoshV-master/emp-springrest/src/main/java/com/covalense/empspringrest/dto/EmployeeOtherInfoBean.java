@@ -10,14 +10,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Table(name = "employee_otherinfo")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 public class EmployeeOtherInfoBean implements Serializable {
 
-	@XmlTransient
+	// @XmlTransient
+	@JsonIgnore
 	@JoinColumn(name = "id")
 	@Id
 	@OneToOne

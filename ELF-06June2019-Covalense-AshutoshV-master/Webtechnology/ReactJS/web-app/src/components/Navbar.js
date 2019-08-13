@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import ViewAccount from './components/ViewAccount';
-import { CreateAccount } from './components/CreateAccount';
+import ViewAccount from './ViewAccount';
+import { CreateAccount } from './CreateAccount';
 
 
-export default function Navbar(props) {
+export  default function Navbar(props) {
 
     return(
         <Router>

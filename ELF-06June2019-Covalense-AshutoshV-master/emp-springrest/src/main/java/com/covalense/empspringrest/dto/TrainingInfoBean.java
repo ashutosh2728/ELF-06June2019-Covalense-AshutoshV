@@ -11,11 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "training_info")
 public class TrainingInfoBean implements Serializable {
@@ -30,7 +29,8 @@ public class TrainingInfoBean implements Serializable {
 	@Column(name = "COURSE_TYPE")
 	private String courseType;
 
-	@XmlTransient
+	// @XmlTransient
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "employee_training", joinColumns = { @JoinColumn(name = "COURSE_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "ID") })

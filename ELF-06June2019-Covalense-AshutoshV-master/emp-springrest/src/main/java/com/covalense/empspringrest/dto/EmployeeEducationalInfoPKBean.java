@@ -6,16 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings("serial")
 @Embeddable
 public class EmployeeEducationalInfoPKBean implements Serializable {
 
-	@XmlTransient
+	// @XmlTransient
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id")
 	private EmployeeInfoBean bean;

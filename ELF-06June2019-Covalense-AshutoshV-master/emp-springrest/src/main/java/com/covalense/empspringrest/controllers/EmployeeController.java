@@ -56,7 +56,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping(path = "/getAllEmployee")
-	public @ResponseBody List<EmployeeInfoBean> getAllEmployee(int id) {
+	public @ResponseBody List<EmployeeInfoBean> getAllEmployee(@RequestParam("id") int id) {
 		return dao.getAllEmployeeInfo(id);
 	}
 }

@@ -14,42 +14,50 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @SuppressWarnings("serial")
-@XmlRootElement(name = "employee-info-bean")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonRootName(value = "employee_info")
+//@XmlRootElement(name = "employee-info-bean")
+//@XmlAccessorType(XmlAccessType.FIELD)
 @Table(name = "employee_info")
 @Entity
 public class EmployeeInfoBean implements Serializable {
 
-	@XmlElement(name = "other-info")
+	// @XmlElement(name = "other-info")
+	@JsonProperty(value = "other-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "infoBean")
 	private EmployeeOtherInfoBean otherInfo;
 
-	@XmlElement(name = "address-info")
+	// @XmlElement(name = "address-info")
+	@JsonProperty(value = "address-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "addressPKBean.bean")
 	private List<EmployeeAddressInfoBean> addressInfoBeanList;
 
-	@XmlElement(name = "education-info")
+	// @XmlElement(name = "education-info")
+	@JsonProperty(value = "education-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "educationalInfoPKBean.bean")
 	private List<EmployeeEducationalInfoBean> employeeEducationalInfoBean;
 
-	@XmlElement(name = "experience-info")
+	// @XmlElement(name = "experience-info")
+	@JsonProperty(value = "experience-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeExperienceInfoPKBean.bean")
 	private List<EmployeeExperienceInfoBean> employeeExperienceInfoBean;
 
-	@XmlElement(name = "training-info")
+	// @XmlElement(name = "training-info")
+	@JsonProperty(value = "training-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfoBeans")
 	private List<TrainingInfoBean> trainingInfoBean;
