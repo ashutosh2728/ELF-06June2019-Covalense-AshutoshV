@@ -7,6 +7,9 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Data;
+
+@Data
 @SuppressWarnings("serial")
 @Embeddable
 public class EmployeeAddressPKBean implements Serializable {
@@ -16,21 +19,5 @@ public class EmployeeAddressPKBean implements Serializable {
 
 	@Column(name = "ADDRESSTYPE")
 	private String addressType;
-
-	public EmployeeInfoBean getBean() {
-		return bean;
-	}
-
-	public void setBean(EmployeeInfoBean bean) {
-		this.bean = bean;
-	}
-
-	public String getAddressType() {
-		return addressType;
-	}
-
-	public void setAddressType(String addressType) {
-		this.addressType = addressType;
-	}
 
 }

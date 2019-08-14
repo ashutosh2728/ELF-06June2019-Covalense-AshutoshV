@@ -12,6 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "training_info")
 public class TrainingInfoBean implements Serializable {
@@ -30,45 +33,5 @@ public class TrainingInfoBean implements Serializable {
 	@JoinTable(name = "employee_training", joinColumns = { @JoinColumn(name = "COURSE_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "ID") })
 	List<EmployeeInfoBean> employeeInfoBeans;
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
-
-	public String getCourseName() {
-		return courseName;
-	}
-
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-
-	public String getDuration() {
-		return duration;
-	}
-
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
-
-	public String getCourseType() {
-		return courseType;
-	}
-
-	public void setCourseType(String courseType) {
-		this.courseType = courseType;
-	}
-
-	public List<EmployeeInfoBean> getEmployeeInfoBeans() {
-		return employeeInfoBeans;
-	}
-
-	public void setEmployeeInfoBeans(List<EmployeeInfoBean> employeeInfoBeans) {
-		this.employeeInfoBeans = employeeInfoBeans;
-	}
 
 }// End of TrainingInfoBean

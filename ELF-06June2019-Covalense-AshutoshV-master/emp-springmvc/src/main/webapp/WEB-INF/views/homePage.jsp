@@ -1,7 +1,13 @@
 <%@page import="javax.print.attribute.standard.MediaSize.Other"%>
-
+<%@page import="org.springframework.web.servlet.support.ServletUriComponentsBuilder"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+      <%
+    
+    String baseURL =ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();%>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +25,7 @@
         </div>
        <div>
           
-            <form class="example" action="../validator/validate/employee/search" method="get">
+            <form class="example" action="<%=baseURL%>/validator/validate/employee/search" method="get">
              <input type="text" placeholder="Search.." name="id">
            <!--   <!--  --><input hidden type="text" value="search"> -->
             <button type="submit"><i class="fa fa-search"></i></button>

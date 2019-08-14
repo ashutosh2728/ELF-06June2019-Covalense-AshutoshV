@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -62,6 +63,7 @@ public class EmployeeInfoBean implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "employeeInfoBeans")
 	private List<TrainingInfoBean> trainingInfoBean;
 
+	@JsonProperty(value = "id")
 	@Id
 	@Column(name = "ID")
 	private Integer id;
@@ -89,10 +91,10 @@ public class EmployeeInfoBean implements Serializable {
 	private String password;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DEPT_ID")
-	private DepartmentInfoBean departmentInfoBean;
+	@JoinColumn(name = "DEPT_ID", referencedColumnName = "DEPT_ID")
+	private DepartmentInfoBean deptId;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "MNGR_ID", referencedColumnName = "id")
 	private EmployeeInfoBean mngId;
 
@@ -233,11 +235,11 @@ public class EmployeeInfoBean implements Serializable {
 	}
 
 	public DepartmentInfoBean getDepartmentInfoBean() {
-		return departmentInfoBean;
+		return deptId;
 	}
 
 	public void setDepartmentInfoBean(DepartmentInfoBean departmentInfoBean) {
-		this.departmentInfoBean = departmentInfoBean;
+		this.deptId = departmentInfoBean;
 	}
 
 	public EmployeeInfoBean getMngId() {
