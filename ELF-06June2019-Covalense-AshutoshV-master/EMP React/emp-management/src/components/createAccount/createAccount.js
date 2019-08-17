@@ -4,7 +4,7 @@ import Address from './Address'
 import OtherInfo from './OtherInfo'
  import Experience from './Experience'
 // import Training from './Training'
-// import Education from './Education'
+ import Education from './Education'
 
 export class CreateAccount extends Component {
     render() {
@@ -12,12 +12,19 @@ export class CreateAccount extends Component {
             <div>
                 <form>
                     <Info/>
-                    <br/>
-                 <Address/>
-                 <br/>
+                    <br/>    
                  <OtherInfo/>
                  <br/>
+                 <Address/>
+                 <br/>
+                 <Education/>
+                 <br/>
+                 <Education/>
+                 <br/>
                  <Experience/>
+                 <br/>
+                 <Experience/>
+                
                 </form>
             </div>
         )
