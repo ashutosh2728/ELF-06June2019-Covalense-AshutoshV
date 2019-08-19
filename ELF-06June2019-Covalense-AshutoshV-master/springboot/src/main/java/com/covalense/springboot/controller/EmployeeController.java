@@ -3,7 +3,6 @@ package com.covalense.springboot.controller;
 import java.util.Arrays;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +17,7 @@ import com.covalense.springboot.dto.EmployeeAddressInfoBean;
 import com.covalense.springboot.dto.EmployeeEducationalInfoBean;
 import com.covalense.springboot.dto.EmployeeExperienceInfoBean;
 import com.covalense.springboot.dto.EmployeeInfoBean;
+import com.covalense.springboot.dto.EmployeeOtherInfoBean;
 import com.covalense.springboot.dto.EmployeeResponse;
 import com.covalense.springboot.repository.EmployeeRepository;
 
@@ -35,6 +35,7 @@ public class EmployeeController {
 	@PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponse createEmoployee(@RequestBody EmployeeInfoBean infoBean) {
 		infoBean.getOtherInfo().setInfoBean(infoBean);
+
 		for (EmployeeEducationalInfoBean employeeEducationalInfoBean : infoBean.getEmployeeEducationalInfoBean()) {
 			employeeEducationalInfoBean.getEducationalInfoPKBean().setBean(infoBean);
 		}
@@ -46,16 +47,18 @@ public class EmployeeController {
 		for (EmployeeExperienceInfoBean employeeExperienceInfoBean : infoBean.getEmployeeExperienceInfoBean()) {
 			employeeExperienceInfoBean.getEmployeeExperienceInfoPKBean().setBean(infoBean);
 		}
-		
+
 		EmployeeInfoBean manager = infoBean.getMngId();
-		manager = repository.findById(manager.getId()).get();
-		infoBean.setMngId(manager);
+		if (manager != null) {
+			manager = repository.findById(manager.getId()).get();
+			infoBean.setMngId(manager);
+		}
 		EmployeeResponse response = new EmployeeResponse();
-		if(!repository.existsById(infoBean.getId())) {
-		repository.save(infoBean);
-		response.setStatusCode(201);
-		response.setMessage("Successful");
-		response.setDescription("Employee Data added successfully");
+		if (!repository.existsById(infoBean.getId())) {
+			repository.save(infoBean);
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee Data added successfully");
 		} else {
 			response.setStatusCode(401);
 			response.setMessage("Failure");
@@ -65,10 +68,10 @@ public class EmployeeController {
 	}
 
 	@GetMapping(path = "/getEmployee", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	public EmployeeResponse getEmployee(@RequestParam  int id) {
+	public EmployeeResponse getEmployee(@RequestParam int id) {
 		EmployeeResponse response = new EmployeeResponse();
 		EmployeeInfoBean infoBean = repository.findById(id).get();
-		if(infoBean!=null) {
+		if (repository.existsById(id)) {
 			response.setStatusCode(201);
 			response.setMessage("Successful");
 			response.setDescription("Employee data found successfully");
@@ -78,31 +81,34 @@ public class EmployeeController {
 			response.setMessage("Failure");
 			response.setDescription("Employee data not found");
 		}
-		
+
 		return response;
 
 	}
-	
-	@DeleteMapping(path = "/deleteEmployee", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-	public EmployeeResponse deleteEmployee(@RequestParam  int id) {
+
+	@DeleteMapping(path = "/deleteEmployee", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE })
+	public EmployeeResponse deleteEmployee(@RequestParam("id") int id) {
 		EmployeeResponse response = new EmployeeResponse();
-		EmployeeInfoBean infoBean = repository.findById(id).get();
-		if(!repository.existsById(infoBean.getId())) {
+		// EmployeeInfoBean infoBean = repository.findById(id).get();
+		if (repository.existsById(id)) {
 			response.setStatusCode(201);
 			response.setMessage("Successful");
 			response.setDescription("Employee data deleted successfully");
-			repository.delete(infoBean);
+			repository.deleteById(id);
 		} else {
 			response.setStatusCode(401);
 			response.setMessage("Failure");
 			response.setDescription("Employee data not found");
 		}
-		
+
 		return response;
 
 	}
+
 	@PutMapping(path = "/updateEmployee", produces = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponse updateEmployee(@RequestBody EmployeeInfoBean infoBean) {
+
 		infoBean.getOtherInfo().setInfoBean(infoBean);
 		List<EmployeeEducationalInfoBean> eduBeans = infoBean.getEmployeeEducationalInfoBean();
 		for (EmployeeEducationalInfoBean employeeEducationalInfoBean : eduBeans) {
@@ -118,22 +124,33 @@ public class EmployeeController {
 		for (EmployeeExperienceInfoBean employeeExperienceInfoBean : employeeExperienceInfoBeans) {
 			employeeExperienceInfoBean.getEmployeeExperienceInfoPKBean().setBean(infoBean);
 		}
-		
+
 		EmployeeInfoBean manager = infoBean.getMngId();
-		manager = repository.findById(manager.getId()).get();
-		infoBean.setMngId(manager);
+		if (manager != null) {
+			manager = repository.findById(manager.getId()).get();
+			infoBean.setMngId(manager);
+		}
+
 		EmployeeResponse response = new EmployeeResponse();
-		if(!repository.existsById(infoBean.getId())) {
-		repository.save(infoBean);
-		response.setStatusCode(201);
-		response.setMessage("Successful");
-		response.setDescription("Employee Data added successfully");
+		if (repository.existsById(infoBean.getId())) {
+			infoBean.getOtherInfo().setOtherInfoId(repository.findByEmpId(infoBean).getOtherInfoId());
+			repository.save(infoBean);
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee Data updated successfully");
 		} else {
 			response.setStatusCode(401);
 			response.setMessage("Failure");
-			response.setDescription("Employee id already exists");
+			response.setDescription("Employee id not exist");
 		}
 		return response;
+	}
+
+	@GetMapping(value = "/getOtherInfo", produces = MediaType.APPLICATION_JSON_VALUE)
+	public EmployeeOtherInfoBean getOtherInfo(int id) {
+		EmployeeInfoBean bean = new EmployeeInfoBean();
+		bean.setId(id);
+		return repository.findByEmpId(bean);
 	}
 
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -14,14 +15,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "employee_otherinfo")
 //@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class EmployeeOtherInfoBean implements Serializable {
 
+public class EmployeeOtherInfoBean implements Serializable {
+	@JsonIgnore
+	@Id
+	@Column(name= "other_info_id")
+	@GeneratedValue
+	private int otherInfoId;
+	
 	// @XmlTransient
 	@JsonIgnore
-	@JoinColumn(name = "id")
-	@Id
+	@JoinColumn(name = "id",unique=true,nullable=false)
 	@OneToOne
-	EmployeeInfoBean infoBean;
+	private EmployeeInfoBean infoBean;
 
 	@Column(name = "pan")
 	private String pan;
@@ -74,8 +80,17 @@ public class EmployeeOtherInfoBean implements Serializable {
 //		this.isMarried = isMarried;
 //	}
 
+	
 	public String getBloodGrp() {
 		return bloodGrp;
+	}
+
+	public int getOtherInfoId() {
+		return otherInfoId;
+	}
+
+	public void setOtherInfoId(int otherInfoId) {
+		this.otherInfoId = otherInfoId;
 	}
 
 	public void setBloodGrp(String bloodGrp) {
