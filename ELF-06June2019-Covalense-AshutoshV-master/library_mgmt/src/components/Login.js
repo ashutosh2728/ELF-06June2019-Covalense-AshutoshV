@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 
 export class Login extends Component {
    constructor(props){
       super(props);
 
       this.state = {
-          id : '',
+          userId : '',
           password : '',
           errorMessage: ''
       }
@@ -17,23 +19,25 @@ export class Login extends Component {
   postLoginData(event) {
       event.preventDefault();
       //let accountData = this.state;
-      const {id,password} = this.state;
-      const loginData = {id,password};
+      const {userId,password} = this.state;
+      const loginData = {userId,password};
 
       if(this.validateLogin(loginData)){
           //Call the API using Axios and Validate the Employee Login
-          Axios.post('http://localhost/emp-springrest/login/auth',null,{
+          Axios.post('http://localhost:8030/auth',null,{
               params:{
-                  id:this.state.id,
+                userId:this.state.userId,
                   password:this.state.password
               }
           }).then((response)=>{
               console.log(response.data);
               console.log(response.data.statusCode)
+              this.props.history.push('/Navbar');
               if(response.statusCode==401){
                   this.setState({errorMessage:response.data.message});
+                  this.props.history.push('/');
               } else{
-                  
+                
                               }
           }).catch((error)=>{
               console.log('Error',error);
@@ -44,9 +48,9 @@ export class Login extends Component {
   validateLogin(loginData){
       let validationSuccess = false;
 
-      if(loginData.id.trim()==="" || loginData.id.trim()===null){
-          alert('Please enter Employee Id');
-          document.getElementById("id").focus();
+      if(loginData.userId.trim()==="" || loginData.userId.trim()===null){
+          alert('Please enter User Id');
+          document.getElementById("userId").focus();
           return validationSuccess;
       } else if(loginData.password.trim()==="" || loginData.password.trim()===null){
           alert('Please enter Password');
@@ -74,14 +78,14 @@ export class Login extends Component {
                <form onSubmit={this.postLoginData}>
                   <div class="form-group">
                      <label>User ID</label>
-                     <input type="text" onChange={(event)=>{this.setState({id:event.target.value})}} value={this.state.id} class="form-control" placeholder="User ID"/>
+                     <input type="text" onChange={(event)=>{this.setState({userId:event.target.value})}} value={this.state.userId} class="form-control" placeholder="User ID"/>
                   </div>
                   <div class="form-group">
                      <label>Password</label>
                      <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} value={this.state.password} class="form-control" placeholder="Password"/>
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
-                  <a href="">  Forgot-Password</a>
+                  <Link to="/Navbar">  Forgot-Password</Link>
                </form>
             </div>
          </div>
