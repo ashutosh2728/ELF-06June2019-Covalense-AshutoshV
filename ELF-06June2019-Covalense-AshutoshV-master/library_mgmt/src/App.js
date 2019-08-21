@@ -8,6 +8,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import AddUser from './components/Admin/AddUser'
 import DeleteUser from './components/Admin/DeleteUser'
 import UpdateUser from './components/Admin/UpdateUser'
+import LibrarianHomePage from './components/Librarian/LibrarianHomePage'
+import AddBook from './components/Librarian/AddBook'
+import DeleteBook from './components/Librarian/DeleteBook'
+import AllocateBook from './components/Librarian/AllocateBook'
+import DeallocateBook from './components/Librarian/DeallocateBook'
 function App() {
   return (
     <Router>
@@ -16,6 +21,11 @@ function App() {
        <Route  path='/AddUser' component={AddUser}></Route>
        <Route  path='/DeleteUser' component={DeleteUser}></Route>
        <Route  path='/UpdateUser' component={UpdateUser}></Route>
+       <Route  path='/LibrarianHomePage' component={LibrarianHomePage}></Route>
+       <Route   path='/AddBook' component={AddBook}></Route>
+       <Route  path='/DeleteBook' component={DeleteBook}></Route>
+       <Route  path='/AllocateBook' component={AllocateBook}></Route>
+       <Route  path='/DeallocateBook' component={DeallocateBook}></Route>
      </Router>
   );
 }

@@ -85,7 +85,7 @@ export class Login extends Component {
                      <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} value={this.state.password} class="form-control" placeholder="Password"/>
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
-                  <Link to="/Navbar">  Forgot-Password</Link>
+                  <Link to="/LibrarianHomePage">  Forgot-Password</Link>
                </form>
             </div>
          </div>
