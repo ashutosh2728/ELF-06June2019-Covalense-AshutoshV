@@ -3,6 +3,14 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export class DeleteBook extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+        bookId : '',
+       
+    }
+    this.postDeleteData = this.postDeleteData.bind(this);
+}
     openUser(event){
         this.props.history.push('/AddBook');
         this.props.history.push('/DeleteBook');
@@ -13,6 +21,20 @@ export class DeleteBook extends Component {
         event.preventDefault();
                 this.props.history.push('/'); // redirect to home page
             }
+ postDeleteData(event) {
+   event.preventDefault();
+    let account = this.state;
+   console.log(account.bookId);
+                  Axios.delete('http://localhost:8030/deleteBook?bookId='+account.bookId).then((response)=>{
+
+                      console.log(response.data);
+                      console.log(response.data.statusCode)
+                      this.props.history.push('/LibrarianHomePage');
+                      
+                  }).catch((error)=>{
+                      console.log('Error',error);
+                  });
+              }
     render() {
         return (
             <div>
@@ -47,18 +69,18 @@ export class DeleteBook extends Component {
         <tbody>
            <tr>
               <td colspan="1">
-                 <form class="well form-horizontal">
+                 <form class="well form-horizontal" onSubmit={this.postDeleteData}>
                     <fieldset>
                  <div class="form-group">
                          <label class="col-md-4 control-label">Book ID</label>
                            <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" name="bookId" placeholder="Book ID" class="form-control" required="true" value="" type="text"/></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" name="bookId" placeholder="Book ID" onChange={(event)=>{this.setState({bookId:event.target.value})}} value={this.state.bookId} class="form-control" required="true"  type="text"/></div>
                          </div>
                        </div>
                        <div class="form-group">
                           <label class="col-md-4 control-label">Book Name</label>
                           <div class="col-md-4 inputGroupContainer">
-                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookName" name="bookName" placeholder="Book Name" class="form-control" required="true" value="" type="number"/></div>
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookName" name="bookName" onChange={(event)=>{this.setState({bookName:event.target.value})}} value={this.state.bookName} placeholder="Book Name" class="form-control" required="true"  type="text"/></div>
                           </div>
                        </div>
                       

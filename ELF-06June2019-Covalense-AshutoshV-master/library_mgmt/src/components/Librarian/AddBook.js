@@ -5,7 +5,16 @@ import Axios from 'axios'
 export class AddBook extends Component {
     constructor(props){
         super(props)
-   
+        this.state={
+           bookId : '',
+           bookName : '',
+           author : '',
+           publications : '',
+           category : '',
+           noOfCopies : '',
+           avbNoOfCopies : ''
+        }
+        this.postAddData = this.postAddData.bind(this);
         }
         logoutApp(event) {
             event.preventDefault();
@@ -18,6 +27,23 @@ export class AddBook extends Component {
         this.props.history.push('/AllocateBook');
         this.props.history.push('/DeallocateBook');
     }
+    postAddData(event) {
+      event.preventDefault();
+     // const accountData = this.state;
+  const {bookId,bookName,author,publications,category,noOfCopies,avbNoOfCopies} = this.state;
+      const loginData = {bookId,bookName,author,publications,category,noOfCopies,avbNoOfCopies};
+      console.log("Account data",loginData);
+          //Call the API using Axios and Validate the Employee Login
+          Axios.post('http://localhost:8030/createBook',loginData).then((response)=>{
+
+              console.log(response.data);
+              console.log(response.data.statusCode)
+              this.props.history.push('/LibrarianHomePage');
+              
+          }).catch((error)=>{
+              console.log('Error',error);
+          });
+      }
     render() {
         return (
             <div>
@@ -52,53 +78,53 @@ export class AddBook extends Component {
         <tbody>
            <tr>
               <td colspan="1">
-                 <form class="well form-horizontal">
+                 <form class="well form-horizontal" onSubmit={this.postAddData}>
                     <fieldset>
                  <div class="form-group">
                          <label class="col-md-4 control-label">Book ID</label>
                            <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" name="bookId" placeholder="Book ID" class="form-control" required="true" value="" type="text"/></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" onChange={(event)=>{this.setState({bookId:event.target.value})}} value={this.state.bookId} name="bookId" placeholder="Book ID" class="form-control" required="true"  type="text"/></div>
                          </div>
                        </div>
                        <div class="form-group">
                           <label class="col-md-4 control-label">Book Name</label>
                           <div class="col-md-4 inputGroupContainer">
-                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookName" name="bookName" placeholder="Book Name" class="form-control" required="true" value="" type="number"/></div>
+                             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookName" name="bookName" onChange={(event)=>{this.setState({bookName:event.target.value})}} value={this.state.bookName} placeholder="Book Name" class="form-control" required="true" type="text"/></div>
                           </div>
                        </div>
                        <div class="form-group">
                         <label class="col-md-4 control-label">Category</label>
                         <div class="col-md-4 inputGroupContainer">
-                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="category" name="category" placeholder="Category" class="form-control" required="true" value="" type="text"/></div>
+                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="category" name="category" onChange={(event)=>{this.setState({category:event.target.value})}} value={this.state.category} placeholder="Category" class="form-control" required="true"  type="text"/></div>
                         </div>
                     </div>
                     <div class="form-group">
                             <label class="col-md-4 control-label">Author</label>
                             <div class="col-md-4 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="author" name="author" placeholder="Author" class="form-control" required="true" value="" type="text"/></div>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="author" name="author" onChange={(event)=>{this.setState({author:event.target.value})}} value={this.state.author} placeholder="Author" class="form-control" required="true"  type="text"/></div>
                             </div>
                         </div>
                         <div class="form-group">
                                 <label class="col-md-4 control-label">Publications</label>
                                 <div class="col-md-4 inputGroupContainer">
-                                   <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="publications" name="publications" placeholder="publications" class="form-control" required="true" value="" type="text"/></div>
+                                   <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="publications" name="publications" onChange={(event)=>{this.setState({publications:event.target.value})}} value={this.state.publications} placeholder="publications" class="form-control" required="true" type="text"/></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                     <label class="col-md-4 control-label">Total Number Of Books</label>
                                     <div class="col-md-4 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="noOfCopies" name="noOfCopies" placeholder="No Of Copies" class="form-control" required="true" value="" type="text"/></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="noOfCopies" name="noOfCopies"  onChange={(event)=>{this.setState({noOfCopies:event.target.value})}} value={this.state.noOfCopies} placeholder="No Of Copies" class="form-control" required="true"  type="text"/></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                         <label class="col-md-4 control-label">Available No Of Books </label>
                                         <div class="col-md-4 inputGroupContainer">
-                                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="avbNoOfCopies" name="avbNoOfCopies" placeholder="No Of Copies" class="form-control" required="true" value="" type="text"/></div>
+                                           <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="avbNoOfCopies" name="avbNoOfCopies" onChange={(event)=>{this.setState({avbNoOfCopies:event.target.value})}} value={this.state.avbNoOfCopies} placeholder="Available Copies" class="form-control" required="true" type="text"/></div>
                                         </div>
                                     </div>
                     
                      <div class="col-md-3 col-md-offset-4"  >  
-                     <input type="submit" onclick="alert('Your details have been submitted :)')" value="Submit"class="btn btn-lg btn-primary"/>
+                     <button type="submit"  value="Submit"class="btn btn-lg btn-primary">Submit</button>
                      <input  type="reset" class="btn btn-lg btn-primary"/>
                      </div>
                     </fieldset>

@@ -10,6 +10,7 @@ export class Login extends Component {
       this.state = {
           userId : '',
           password : '',
+          userType : '',
           errorMessage: ''
       }
 
@@ -19,25 +20,27 @@ export class Login extends Component {
   postLoginData(event) {
       event.preventDefault();
       //let accountData = this.state;
-      const {userId,password} = this.state;
-      const loginData = {userId,password};
-
+      const {userId,password,userType} = this.state;
+      const loginData = {userId,password,userType};
+    console.log(loginData)
       if(this.validateLogin(loginData)){
           //Call the API using Axios and Validate the Employee Login
           Axios.post('http://localhost:8030/auth',null,{
               params:{
                 userId:this.state.userId,
-                  password:this.state.password
+                  password:this.state.password,
+                  userType : this.state.userType
               }
           }).then((response)=>{
               console.log(response.data);
               console.log(response.data.statusCode)
-              this.props.history.push('/Navbar');
-              if(response.statusCode==401){
-                  this.setState({errorMessage:response.data.message});
-                  this.props.history.push('/');
-              } else{
-                
+             // this.props.history.push('/Navbar');
+              if(loginData.userType=="Admin"){
+                  this.props.history.push('/Navbar');
+              } else if(loginData.userType=="Librarian") {
+                this.props.history.push('/LibrarianHomePage');
+                              } else {
+                                this.props.history.push('/');
                               }
           }).catch((error)=>{
               console.log('Error',error);
@@ -83,6 +86,15 @@ export class Login extends Component {
                   <div class="form-group">
                      <label>Password</label>
                      <input type="password" onChange={(event)=>{this.setState({password:event.target.value})}} value={this.state.password} class="form-control" placeholder="Password"/>
+                  </div>
+                  <div class="form-group">
+                     <label  >User Type</label>
+                     <select id="userType" name="userType" onChange={(event)=>{this.setState({userType:event.target.value})}} value={this.state.userType}>
+                     <option  selected>Choose..</option>
+                    <option  value="Admin">Admin</option>
+                    <option value="Librarian">Librarian</option>
+                    <option  value="User">User</option>
+                    </select>
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
                   <Link to="/LibrarianHomePage">  Forgot-Password</Link>

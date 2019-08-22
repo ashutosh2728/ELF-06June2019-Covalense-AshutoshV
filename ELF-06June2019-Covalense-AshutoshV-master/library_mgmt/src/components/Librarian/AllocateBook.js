@@ -5,6 +5,9 @@ import Axios from 'axios'
 export class AllocateBook extends Component {
     constructor(props){
         super(props)
+        this.state={
+
+        }
    
         }
     openUser(event){
@@ -56,20 +59,20 @@ export class AllocateBook extends Component {
                       <div class="form-group">
                                     <label class="col-md-4 control-label">User ID</label>
                                     <div class="col-md-4 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="userId" name="userId" placeholder="user id" class="form-control" required="true" value="" type="number"/></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="userId" name="userId" onChange={(event)=>{this.setState({userId:event.target.value})}} value={this.state.userId} placeholder="user id" class="form-control" required="true"  type="number"/></div>
                                     </div>
                                  </div>
             
                        <div class="form-group">
                             <label class="col-md-4 control-label">Date Of Issue</label>
                               <div class="col-md-4 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input id="bookId" name="issueDate" placeholder="Date of Issue" class="form-control" required="true" value="" type="date"/></div>
+                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span><input id="issueDate" name="issueDate" onChange={(event)=>{this.setState({issueDate:event.target.value})}} value={this.state.issueDate} placeholder="Date of Issue" class="form-control" required="true"  type="date"/></div>
                             </div>
                           </div>
                         <div class="form-group">
                                 <label class="col-md-4 control-label">Book ID</label>
                                 <div class="col-md-4 inputGroupContainer">
-                                   <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" name="bookId" placeholder="Book Id" class="form-control" required="true" value="" type="number"/></div>
+                                   <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span><input id="bookId" name="bookId" onChange={(event)=>{this.setState({bookId:event.target.value})}} value={this.state.bookId} placeholder="Book Id" class="form-control" required="true"  type="number"/></div>
                             </div>
                          </div>
                      <div class="col-md-3 col-md-offset-4"  >  

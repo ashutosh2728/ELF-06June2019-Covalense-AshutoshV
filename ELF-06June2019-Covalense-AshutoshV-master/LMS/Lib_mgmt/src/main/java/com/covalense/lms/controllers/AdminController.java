@@ -27,10 +27,10 @@ public class AdminController {
 	AdminRepository repository;
 
 	@PostMapping(value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
-	public AdminResponse login(@RequestParam("userId")int id, String password, HttpServletRequest request) {
+	public AdminResponse login(@RequestParam("userId")int id, String password,String userType, HttpServletRequest request) {
 		AdminResponse response = new AdminResponse();
 		UserInfoBean infoBean = repository.findById(id).get();
-		if (infoBean != null && infoBean.getPassword().equals(password)) {
+		if (infoBean != null && infoBean.getPassword().equals(password) && infoBean.getUserType().equals(userType)) {
 			response.setStatusCode(201);
 			response.setMessage("Successful");
 			response.setDescription("Login successfully");

@@ -43,7 +43,7 @@ export class LibrarianHomePage extends Component {
       </div>
     </form>
     <ul class="nav navbar-nav" >
-        <li ><a href="#" >Logout</a></li>
+    <li><a href="<%=baseURL%>/logout"onClick={this.logoutApp.bind(this)}>Logout</a></li>
       </ul>
   </div>
 </nav>

@@ -1,10 +1,18 @@
 package com.covalense.lms.dto;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +27,14 @@ import lombok.Data;
 @Entity
 @Data
 public class UserInfoBean {
+	/*
+	 * @JsonProperty(value = "issue-info")
+	 * 
+	 * @LazyCollection(LazyCollectionOption.FALSE)
+	 * 
+	 * @OneToOne(cascade = CascadeType.ALL, mappedBy = "userInfoBean") private
+	 * BookIssueBean issueBean;
+	 */
 
 	@Id
 	@Column(name = "USER_ID")
