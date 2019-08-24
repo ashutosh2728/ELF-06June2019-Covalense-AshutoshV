@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,24 +27,6 @@ import com.covalense.lms.repository.AdminRepository;
 public class AdminController {
 	@Autowired
 	AdminRepository repository;
-
-	@PostMapping(value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
-	public AdminResponse login(@RequestParam("userId")int id, String password,String userType, HttpServletRequest request) {
-		AdminResponse response = new AdminResponse();
-		UserInfoBean infoBean = repository.findById(id).get();
-		if (infoBean != null && infoBean.getPassword().equals(password) && infoBean.getUserType().equals(userType)) {
-			response.setStatusCode(201);
-			response.setMessage("Successful");
-			response.setDescription("Login successfully");
-			response.setBeans(Arrays.asList(infoBean));
-			request.getSession().setAttribute("bean", infoBean);
-		} else {
-			response.setStatusCode(401);
-			response.setMessage("Failure");
-			response.setDescription("User data not found");
-		}
-		return response;
-	}
 
 	@PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
 	public AdminResponse createEmoployee(@RequestBody UserInfoBean infoBean) {
@@ -71,6 +55,40 @@ public class AdminController {
 			response.setMessage("Successful");
 			response.setDescription("Employee data deleted successfully");
 			repository.deleteById(id);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Employee data not found");
+		}
+
+		return response;
+
+	}
+	@PostMapping(path = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
+	public AdminResponse updateEmployee(@RequestBody UserInfoBean infoBean) {
+		AdminResponse response = new AdminResponse();
+		if (repository.existsById(infoBean.getUserId())){
+			repository.save(infoBean);
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("User Data updated successfully");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failure");
+			response.setDescription("Employee id does not exist");
+		}
+		return response;
+	}
+	
+	@GetMapping(path = "/getUser", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	public AdminResponse getEmployee(@RequestParam int userId) {
+		AdminResponse response = new AdminResponse();
+		UserInfoBean infoBean = repository.findById(userId).get();
+		if (repository.existsById(userId)) {
+			response.setStatusCode(201);
+			response.setMessage("Successful");
+			response.setDescription("Employee data found successfully");
+			response.setBeans(Arrays.asList(infoBean));
 		} else {
 			response.setStatusCode(401);
 			response.setMessage("Failure");

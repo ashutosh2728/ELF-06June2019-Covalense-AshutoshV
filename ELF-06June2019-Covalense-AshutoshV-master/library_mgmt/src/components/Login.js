@@ -12,6 +12,7 @@ export class Login extends Component {
           password : '',
           userType : '',
           errorMessage: ''
+          
       }
 
       this.postLoginData = this.postLoginData.bind(this);
@@ -32,9 +33,15 @@ export class Login extends Component {
                   userType : this.state.userType
               }
           }).then((response)=>{
+
+            // if(response.data.message === 'Success'){
+               sessionStorage.setItem('userId', response.data.beans[0].userId);
+             //  sessionStorage.setItem('userType', response.data.beans[0].userType);
+              
+            
               console.log(response.data);
               console.log(response.data.statusCode)
-             // this.props.history.push('/Navbar');
+              //this.props.history.push('/Navbar');
               if(loginData.userType=="Admin"){
                   this.props.history.push('/Navbar');
               } else if(loginData.userType=="Librarian") {
@@ -42,6 +49,10 @@ export class Login extends Component {
                               } else {
                                 this.props.history.push('/');
                               }
+                            //   }} 
+                            //   else {
+
+                            //   }
           }).catch((error)=>{
               console.log('Error',error);
           });
@@ -97,7 +108,7 @@ export class Login extends Component {
                     </select>
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
-                  <Link to="/LibrarianHomePage">  Forgot-Password</Link>
+                  <Link to="/">  Forgot-Password</Link>
                </form>
             </div>
          </div>

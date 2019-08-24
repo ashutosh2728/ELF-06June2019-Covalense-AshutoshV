@@ -50,13 +50,14 @@ export class DeleteBook extends Component {
       <li><Link to="AllocateBook">Allocate Book</Link></li>
       <li><Link to="/DeallocateBook">Deallocate Book</Link></li>
     </ul>
-    <form class="navbar-form navbar-left" action="/action_page.php">
+    <form class="navbar-form navbar-left"  onSubmit={this.getSearchData}>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="search"/>
+        <input type="text" class="form-control" placeholder="Search" name="searchId" id="searchId" onChange={(event)=>{this.setState({searchId:event.target.value})}} value={this.state.searchId} name="search"/>
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit">
             <i class="glyphicon glyphicon-search"></i>
           </button>
+          
         </div>
       </div>
     </form>

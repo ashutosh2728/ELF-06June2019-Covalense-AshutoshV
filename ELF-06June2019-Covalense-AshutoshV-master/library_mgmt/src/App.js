@@ -13,6 +13,7 @@ import AddBook from './components/Librarian/AddBook'
 import DeleteBook from './components/Librarian/DeleteBook'
 import AllocateBook from './components/Librarian/AllocateBook'
 import DeallocateBook from './components/Librarian/DeallocateBook'
+import ViewData from './components/Admin/ViewData'
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
        <Route  path='/DeleteBook' component={DeleteBook}></Route>
        <Route  path='/AllocateBook' component={AllocateBook}></Route>
        <Route  path='/DeallocateBook' component={DeallocateBook}></Route>
+       <Route  path='/ViewData' component={ViewData}></Route>
      </Router>
   );
 }

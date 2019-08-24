@@ -10,6 +10,7 @@ export class DeleteUser extends Component {
            
         }
         this.postDeleteData = this.postDeleteData.bind(this);
+        this.postSearchData = this.getSearchData.bind(this)
     }
     openUser(event){
         this.props.history.push('/Navbar');
@@ -35,6 +36,26 @@ export class DeleteUser extends Component {
                     console.log('Error',error);
                 });
             }
+            getSearchData(event) {
+              event.preventDefault();
+               const{searchId} = this.state;
+               const search = {searchId}
+         
+              console.log("Account data",search);
+                  Axios.get('http://localhost:8030/getUser?userId='+search.searchId,null,{
+                    params:{
+                       searchId:this.state.searchId,
+                       
+                    }}).then((response)=>{
+  
+                      console.log(response.data);
+                      console.log(response.data.statusCode)
+                      this.props.history.push('/Navbar');
+                      
+                  }).catch((error)=>{
+                      console.log('Error',error);
+                  });
+              }
     render() {
         return (
             <div>
@@ -50,9 +71,9 @@ export class DeleteUser extends Component {
       <li><Link to="/UpdateUser">Update User</Link></li>
       
     </ul>
-    <form class="navbar-form navbar-left" action="/action_page.php">
+    <form class="navbar-form navbar-left"  onSubmit={this.getSearchData}>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="search"/>
+        <input type="text" class="form-control" placeholder="Search" name="searchId" id="searchId" onChange={(event)=>{this.setState({searchId:event.target.value})}} value={this.state.searchId} name="search"/>
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit">
             <i class="glyphicon glyphicon-search"></i>
